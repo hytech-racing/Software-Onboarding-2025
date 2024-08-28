@@ -14,8 +14,6 @@
         main = final.callPackage ./main.nix { };
       };
 
-      # other_overlay = final: prev: {
-      # }
       my_overlays = [ hello_package_overlay ];
       pkgs = import nixpkgs {
         system = "x86_64-linux";
