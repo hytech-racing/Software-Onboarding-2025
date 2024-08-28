@@ -1,2 +1,5 @@
 build/
 .DS_Store
+ShangEn/build/*
+BenHall/lab1/build
+RishiB/build/*
