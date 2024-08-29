@@ -5,6 +5,8 @@
 #include <arpa/inet.h>  // For sockaddr_in
 #include <sys/socket.h> // For socket functions
 #include <unistd.h>     // For close
+
+// FIX
 #include "../proto/christine/christine.pb.h"
 #include "../proto/hytech/hytech.pb.h"
 
@@ -22,9 +24,9 @@ public:
     bool ReceiveMessage(hytech::Server& message);
 
 private:
-    int sockfd;
-    sockaddr_in server_addr;
-    static const int BUFFER_SIZE = 1024;
+    int _sockfd;
+    sockaddr_in _server_addr;
+    static const int _BUFFER_SIZE = 1024;
 };
 
 #endif // CLIENT_H

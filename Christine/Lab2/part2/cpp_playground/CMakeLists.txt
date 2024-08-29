@@ -12,11 +12,11 @@ add_executable(target playing.cpp)
 #link together
 target_link_libraries(target PUBLIC bar::bar)
 
-
-target_include_directories(target PUBLIC
-                          "${PROJECT_BINARY_DIR}"
-                          "${PROJECT_SOURCE_DIR}/bar"
-                          )
+#Dont include binaries + useless
+#target_include_directories(target PUBLIC
+#                          "${PROJECT_BINARY_DIR}"
+#                          "${PROJECT_SOURCE_DIR}/bar"
+#                          )
 
 
 set_target_properties(target PROPERTIES CXX_STANDARD 17)

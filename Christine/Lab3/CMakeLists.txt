@@ -6,10 +6,10 @@ set(CMAKE_CXX_STANDARD 17)
 # Find protobuf package
 find_package(Protobuf REQUIRED)
 
-# Define the path to your protobuf .proto files
-set(PROTOBUF_PROTO_DIR ${CMAKE_SOURCE_DIR}/proto)
+# NOT NEEDED
+# set(PROTOBUF_PROTO_DIR ${CMAKE_SOURCE_DIR}/proto)
 
-# Define path variables
+# Define path variables DONT
 set(PROTO_SRCS
     ${PROTOBUF_PROTO_DIR}/christine/christine.pb.cc
     ${PROTOBUF_PROTO_DIR}/hytech/hytech.pb.cc
@@ -20,18 +20,20 @@ set(PROTO_HDRS
     ${PROTOBUF_PROTO_DIR}/hytech/hytech.pb.h
 )
 
-# Include directories
+# Include directories DONT
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 include_directories(${PROTOBUF_PROTO_DIR})
 include_directories(include)
 
+# please dont include headers directly in the library, use your 
+# target includes for them. nor specify your sources in a variable like you did above, there is no need to do this.
 # Add the server library
 add_library(server_driver src/server_driver.cpp ${PROTO_SRCS} ${PROTO_HDRS})
 
 # Add the client library
 add_library(client_driver src/client_driver.cpp ${PROTO_SRCS} ${PROTO_HDRS})
 
-# Add the server executable
+# Add the server executable DONT DO THIS use targets include
 add_executable(server app/server_main.cpp ${PROTO_SRCS} ${PROTO_HDRS})
 target_link_libraries(server server_driver ${Protobuf_LIBRARIES})
 

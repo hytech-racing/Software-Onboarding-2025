@@ -3,6 +3,8 @@
 #include <google/protobuf/message.h>
 #include <iostream>
 #include <cstring> // For memset
+
+// FIX
 #include "../proto/christine/christine.pb.h"
 #include "../proto/hytech/hytech.pb.h"
 
@@ -13,21 +15,21 @@
  */
 Client::Client(const std::string& server_ip, uint16_t server_port) {
     // Create socket
-    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
-    if (sockfd < 0) {
+    _sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (_sockfd < 0) {
         std::cerr << "Failed to create socket" << std::endl;
         exit(1);
     }
 
     // Setup server address
-    memset(&server_addr, 0, sizeof(server_addr));
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(server_port);
-    inet_pton(AF_INET, server_ip.c_str(), &server_addr.sin_addr);
+    memset(&_server_addr, 0, sizeof(_server_addr));
+    _server_addr.sin_family = AF_INET;
+    _server_addr.sin_port = htons(server_port);
+    inet_pton(AF_INET, server_ip.c_str(), &_server_addr.sin_addr);
 }
 
 Client::~Client() {
-    close(sockfd);
+    close(_sockfd);
 }
 /**
  * @brief Class Client
@@ -41,8 +43,8 @@ bool Client::SendMessage(const christine::Client& message) {
         return false;
     }
 
-    if (sendto(sockfd, serialized_message.data(), serialized_message.size(), 0, 
-               (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
+    if (sendto(_sockfd, serialized_message.data(), serialized_message.size(), 0, 
+               (struct sockaddr*)&_server_addr, sizeof(_server_addr)) < 0) {
         std::cerr << "Failed to send message" << std::endl;
         return false;
     }
@@ -54,11 +56,11 @@ bool Client::SendMessage(const christine::Client& message) {
  * sends response to the server
  */
 bool Client::ReceiveMessage(hytech::Server& message) {
-    char buffer[BUFFER_SIZE];
+    char buffer[_BUFFER_SIZE];
     sockaddr_in from_addr;
     socklen_t from_addr_len = sizeof(from_addr);
 
-    ssize_t received_bytes = recvfrom(sockfd, buffer, BUFFER_SIZE, 0, 
+    ssize_t received_bytes = recvfrom(_sockfd, buffer, _BUFFER_SIZE, 0, 
                                       (struct sockaddr*)&from_addr, &from_addr_len);
     if (received_bytes < 0) {
         std::cerr << "Failed to receive message" << std::endl;

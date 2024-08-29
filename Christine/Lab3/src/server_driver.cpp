@@ -2,6 +2,8 @@
 #include <google/protobuf/message.h>
 #include <iostream>
 #include <cstring> // For memset
+
+// FIX
 #include "../proto/christine/christine.pb.h"
 #include "../proto/hytech/hytech.pb.h"
 
@@ -18,12 +20,12 @@ Server::Server(const std::string& server_ip, uint16_t server_port) {
     }
 
     // Setup server address
-    memset(&server_addr, 0, sizeof(server_addr));
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(server_port);
-    inet_pton(AF_INET, server_ip.c_str(), &server_addr.sin_addr);
+    memset(&_server_addr, 0, sizeof(_server_addr));
+    _server_addr.sin_family = AF_INET;
+    _server_addr.sin_port = htons(server_port);
+    inet_pton(AF_INET, server_ip.c_str(), &_server_addr.sin_addr);
 
-    if (bind(sock, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
+    if (bind(sock, (struct sockaddr*)&_server_addr, sizeof(_server_addr)) < 0) {
         std::cerr << "Failed to bind socket" << std::endl;
         exit(1);
     }
