@@ -3,6 +3,9 @@ project(new_project
         VERSION 1.0
         DESCRIPTION "New project"
         LANGUAGES CXX)
-add_executable(MyFile src/main.cpp)
-add_library(MyLibrary src/main.cpp
-        src/hello_world.h)
+
+add_library(HelloWorldLibrary SHARED src/hello_world.cpp)
+target_include_directories(HelloWorldLibrary PUBLIC include)
+
+add_executable(main_file src/main.cpp)
+target_link_libraries(main_file PUBLIC HelloWorldLibrary)

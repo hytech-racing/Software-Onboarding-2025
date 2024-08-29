@@ -1,9 +1,10 @@
 #include <iostream>
-#include "hello_world.h"
+#include "hello_world.cpp"
+#include "../include/hello_world.hpp"
 using namespace std;
 
 int main() {
-    HelloWorld hello;
-    cout << hello.hello_world();
+    HelloWorld h;
+    h.hello_world();
     return 0;
 }
