@@ -3,6 +3,7 @@
 
 int main()
 {
-    std::cout << "Hello, World!";
-    hello_world::printPartTwo();
+    hello_world hw;
+    hw.printPartTwo();
+    return 0;
 }

@@ -1,7 +1,9 @@
 #include <hello_world.h>
 #include <iostream>
 
+using namespace std;
+
 void hello_world::printPartTwo()
 {
-    std::cout << " Pt2!" << std::endl;
+    cout << " Hello World, Pt2!" << endl;
 }
