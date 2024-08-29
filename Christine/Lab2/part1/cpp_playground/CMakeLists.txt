@@ -4,6 +4,8 @@ project(
                   DESCRIPTION "Playing around with cmake"
 )
 
+#Added foo to play around with interfaces (bar implements foo)
+#I can delete if u want me to
 add_library(foo STATIC src/foo.cpp)
 add_library(bar STATIC src/bar.cpp)
 

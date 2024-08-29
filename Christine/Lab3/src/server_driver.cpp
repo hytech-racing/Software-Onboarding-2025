@@ -48,7 +48,7 @@ bool Server::SendMessage(const hytech::Server& message) {
         return false;
     }
 
-    if (se  ndto(_sock, serialized_message.data(), serialized_message.size(), 0,
+    if (sendto(_sock, serialized_message.data(), serialized_message.size(), 0,
                 (struct sockaddr*)&_client_addr, sizeof(_client_addr)) < 0) {
         std::cerr << "Failed to send message" << std:: endl;
     }
