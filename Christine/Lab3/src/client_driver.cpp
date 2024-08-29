@@ -1,12 +1,12 @@
 // Client.cpp
-#include "../include/client_driver.h"
+#include "client_driver.h"
 #include <google/protobuf/message.h>
 #include <iostream>
 #include <cstring> // For memset
 
 // FIX
-#include "../proto/christine/christine.pb.h"
-#include "../proto/hytech/hytech.pb.h"
+#include "christine.pb.h"
+#include "hytech.pb.h"
 
 /**
  * @brief Class Client

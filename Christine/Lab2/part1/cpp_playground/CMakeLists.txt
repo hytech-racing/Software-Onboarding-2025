@@ -4,10 +4,19 @@ project(
                   DESCRIPTION "Playing around with cmake"
 )
 
-add_library(foo STATIC foo.cpp foo.hpp)
-add_library(bar STATIC bar.cpp bar.hpp)
+add_library(foo STATIC src/foo.cpp)
+add_library(bar STATIC src/bar.cpp)
 
-add_executable(target playing.cpp)
+add_executable(target app/playing.cpp)
+
+target_include_directories(bar
+    PUBLIC 
+        ${PROJECT_SOURCE_DIR}/include
+)
+target_include_directories(foo
+    PUBLIC 
+        ${PROJECT_SOURCE_DIR}/include
+)
 
 target_link_libraries(bar PRIVATE foo)
 

@@ -14,19 +14,20 @@ add_executable(target app/playing.cpp)
 # namespace!
 target_link_libraries(target PUBLIC bar::bar)
 
-# Bad stuff!
+# Bad PRACTICE!
 #target_include_directories(target PUBLIC
 #                          "${PROJECT_BINARY_DIR}"
 #                          "${PROJECT_SOURCE_DIR}/include"
 #                         )
 
-#builds include and installs it to include path
+# BAD PRACTICE! -- Learn WHY
+# builds include and installs it to include path
 # same thing as lines 17-22
 
-#target_include_directories(target PUBLIC
-#    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-#    $<INSTALL_INTERFACE:include>
-#)
+# target_include_directories(target PUBLIC
+#     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#     $<INSTALL_INTERFACE:include>
+# )
 
 set_target_properties(target PROPERTIES CXX_STANDARD 17)
 target_compile_features(target PUBLIC cxx_std_17)

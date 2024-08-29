@@ -7,8 +7,8 @@
 #include <unistd.h>     // For close
 
 // FIX
-#include "../proto/christine/christine.pb.h"
-#include "../proto/hytech/hytech.pb.h"
+#include "christine.pb.h"
+#include "hytech.pb.h"
 
 /**
  * @brief Class Client

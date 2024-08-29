@@ -12,7 +12,7 @@ add_executable(target playing.cpp)
 #link together
 target_link_libraries(target PUBLIC bar::bar)
 
-#Dont include binaries + useless
+#Dont include binaries + useless! SUPER BAD!
 #target_include_directories(target PUBLIC
 #                          "${PROJECT_BINARY_DIR}"
 #                          "${PROJECT_SOURCE_DIR}/bar"
