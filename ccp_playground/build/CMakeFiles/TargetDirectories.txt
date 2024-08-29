@@ -1,7 +1,0 @@
-/Users/christinekim/Documents/GitHub/ccp_playground/build/CMakeFiles/target.dir
-/Users/christinekim/Documents/GitHub/ccp_playground/build/CMakeFiles/edit_cache.dir
-/Users/christinekim/Documents/GitHub/ccp_playground/build/CMakeFiles/rebuild_cache.dir
-/Users/christinekim/Documents/GitHub/ccp_playground/build/CMakeFiles/list_install_components.dir
-/Users/christinekim/Documents/GitHub/ccp_playground/build/CMakeFiles/install.dir
-/Users/christinekim/Documents/GitHub/ccp_playground/build/CMakeFiles/install/local.dir
-/Users/christinekim/Documents/GitHub/ccp_playground/build/CMakeFiles/install/strip.dir
