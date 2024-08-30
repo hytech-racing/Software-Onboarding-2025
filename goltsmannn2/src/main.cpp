@@ -1,6 +1,5 @@
 #include <iostream>
-#include "hello_world.cpp"
-#include "../include/hello_world.hpp"
+#include <hello_world.hpp>
 using namespace std;
 
 int main() {
