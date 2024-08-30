@@ -1,11 +1,10 @@
 #ifndef BAR_HPP
 #define BAR_HPP
 
-#include "foo.hpp"
 
-class Bar : public Foo {
+class Bar {
 public:
-    void doSomething() override;
+    void doSomething();
 };
 
 #endif 

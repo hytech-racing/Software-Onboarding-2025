@@ -4,9 +4,6 @@ project(
                   DESCRIPTION "Playing around with cmake"
 )
 
-#Added foo to play around with interfaces (bar implements foo)
-#I can delete if u want me to
-add_library(foo STATIC src/foo.cpp)
 add_library(bar STATIC src/bar.cpp)
 
 add_executable(target app/playing.cpp)
@@ -15,12 +12,7 @@ target_include_directories(bar
     PUBLIC 
         include
 )
-target_include_directories(foo
-    PUBLIC 
-        include
-)
 
-target_link_libraries(bar PRIVATE foo)
 
 target_link_libraries(target PRIVATE bar)
 
