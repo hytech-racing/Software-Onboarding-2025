@@ -3,10 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    easy_cmake.url = "github:RCMast3r/easy_cmake";
   };
 
-  outputs = { self, nixpkgs, easy_cmake }:
+  outputs = { self, nixpkgs }:
     let
       pkgs = import nixpkgs {
         system = "x86_64-linux";

@@ -3,5 +3,5 @@
 
 void HelloWorldLib::hello()
 {
-     std::cout << "Hello, World! (pt2)" << std::endl;
+     std::cout << "Hello, World! (lab2 pt1)" << std::endl;
 }

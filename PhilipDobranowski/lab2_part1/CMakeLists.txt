@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.24)
 
 project(hello_world LANGUAGES CXX)
 
-add_library(hello_world_lib SHARED src/hello_world.cpp)
+add_library(hello_world_lib STATIC src/hello_world.cpp)
 target_include_directories(hello_world_lib PUBLIC include)
 
 add_executable(test src/main.cpp)
