@@ -27,8 +27,8 @@ add_library(server_driver src/server_driver.cpp)
 add_library(client_driver src/client_driver.cpp )
 
 #Made two protobuf message just to play around (I can delete this if u want/if its better to just put them in the same proto file)
-add_library(hytech  src/hytech.pb.cc)
-add_library(christine src/christine.pb.cc )
+add_library(hytech STATIC src/hytech.pb.cc)
+add_library(christine STATIC src/christine.pb.cc )
 
 target_include_directories(client_driver PUBLIC
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
@@ -48,18 +48,18 @@ target_include_directories(hytech PUBLIC
 )
 
 #Link the necessary targets 
-target_link_libraries(christine Protobuf)
-target_link_libraries(hytech Protobuf)
-target_link_libraries(client_driver christine hytech)
-target_link_libraries(server_driver christine hytech)
+target_link_libraries(christine PUBLIC Protobuf)
+target_link_libraries(hytech PUBLIC Protobuf)
+target_link_libraries(client_driver PUBLIC christine PUBLIC hytech)
+target_link_libraries(server_driver PUBLIC christine PUBLIC hytech)
 
 # Add the server executable DONT DO THIS use targets include
 add_executable(server app/server_main.cpp)
-target_link_libraries(server server_driver)
+target_link_libraries(server PUBLIC server_driver)
 
 # Add the client executable
 add_executable(client app/client_main.cpp )
-target_link_libraries(client client_driver)
+target_link_libraries(client PUBLIC client_driver)
 
 #install targets!!
 install(TARGETS server client DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
