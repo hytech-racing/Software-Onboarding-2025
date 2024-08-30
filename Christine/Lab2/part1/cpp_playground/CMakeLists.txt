@@ -13,11 +13,11 @@ add_executable(target app/playing.cpp)
 
 target_include_directories(bar
     PUBLIC 
-        ${PROJECT_SOURCE_DIR}/include
+        include
 )
 target_include_directories(foo
     PUBLIC 
-        ${PROJECT_SOURCE_DIR}/include
+        include
 )
 
 target_link_libraries(bar PRIVATE foo)
