@@ -14,8 +14,7 @@
     in
     {
       packages.x86_64-linux = rec {
-        hello_world_lib = hello_world_lib_pkg;
-        default = hello_world_lib;
+        default = hello_world_lib_pkg;
       };
     };
 }
