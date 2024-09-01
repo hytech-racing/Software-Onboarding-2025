@@ -1,5 +1,7 @@
-#include <iostream>
+#include <hello_world.h>
 
 int main() {
-    std::cout << "Hello, World!\n";
+    Hello h;
+    h.hello_world();
+    return 0;
 }
