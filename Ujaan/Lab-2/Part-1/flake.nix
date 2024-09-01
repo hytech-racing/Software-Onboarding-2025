@@ -1,13 +1,5 @@
 {
     description = "part 2 flake";
-    inputs = {
-        nixpkgs.url = "github:NixOS/nixpkgs";
-        nixutils.url = "github:numtide/flake-utils";
-        easy_cmake.url = "github:RCMast3r/easy_cmake";
-    };
-    outputs = {
-        self, nixpkgs, nixutils, easy_cmake
-    }:
     let
       hello_lib_overlay = final: prev: {
         hello_lib = final.callPackage ./default.nix { };
