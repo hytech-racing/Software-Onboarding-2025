@@ -1,8 +1,6 @@
-#include "\\wsl.localhost\Ubuntu\home\jessicaliu\Lab1\include\hello_world.h"
-
 #include<iostream>
-#include<hello.h>
+#include "hello.h"
 
-void Hello::helloWorld() {
-    std::cout << "Hello, World!\n" << std::endl;
+void Hello::hello_world() {
+    std::cout << "Hello, World!" << std::endl;
 }
