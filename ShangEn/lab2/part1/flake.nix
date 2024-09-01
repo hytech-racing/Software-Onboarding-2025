@@ -11,10 +11,7 @@
       vn_lib_overlay = final: prev: {
         vn_lib = final.callPackage ./default.nix { };
       };
-      py_vn_lib_overlay = final: prev: {
-        py_vn_lib = final.callPackage ./python.nix { };
-      };
-      my_overlays = [ easy_cmake.overlays.default vn_lib_overlay py_vn_lib_overlay ];
+      my_overlays = [ easy_cmake.overlays.default vn_lib_overlay ];
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         overlays = [ self.overlays.default ];
