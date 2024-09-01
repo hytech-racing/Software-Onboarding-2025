@@ -7,3 +7,5 @@ target_compile_features(hellolib PUBLIC cxx_std_11)
 
 add_executable(hello_world src/main.cpp)
 target_link_libraries(hello_world PUBLIC hellolib)
+
+install(TARGETS hello_world DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
