@@ -5,4 +5,4 @@ include_directories(include)
 
 add_library(hellolib SHARED src/hellolib.cpp)
 add_executable(nixtest src/main.cpp)
-target_link_libraries(nixtest SHARED hellolib)
+
