@@ -5,7 +5,8 @@ project(
   VERSION 1.0
   LANGUAGES CXX)
 
-add_library(HelloWorldLib src/hello_world.cpp include/hello_world.h)
+add_library(HelloWorldLib src/hello_world.cpp)
+target_include_directories(HelloWorldLib PUBLIC include)
 
 add_executable(HelloWorld src/main.cpp)
 
