@@ -8,13 +8,10 @@
 
   outputs = { self, nixpkgs, utils, hello_lib }:
   let
-    hello_app_overlay = final: prev: rec {
-      hello_app = final.callPackage ./default.nix {
         hello_lib = hello_lib.packages."x86_64-linux".default;
-      };
-    };
 
-    my_overlays = [ hello_app_overlay ];
+
+    my_overlays = [ hello_lib_overlay ];
 
     pkgs = import nixpkgs {
       system = "x86_64-linux";
