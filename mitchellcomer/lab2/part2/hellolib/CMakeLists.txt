@@ -13,7 +13,7 @@
 cmake_minimum_required(VERSION 3.24)
 project(hello_world)
 
-find_package(Boost REQUIRED COMPONENTS system)
+# find_package(Boost REQUIRED COMPONENTS system)
 # other find_package() calls ...
 
 add_library(hellolib SHARED src/hello_world.cpp)
@@ -25,10 +25,10 @@ target_include_directories(hellolib PUBLIC
     $<INSTALL_INTERFACE:include>
 )
 
-target_link_libraries(hellolib PUBLIC
-  Boost::system
-  # other libs ...
-)
+# target_link_libraries(hellolib PUBLIC
+#   Boost::system
+#   # other libs ...
+# )
 
 # and maybe you install your library via some method like
 

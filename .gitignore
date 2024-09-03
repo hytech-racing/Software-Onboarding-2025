@@ -4,3 +4,5 @@ ShangEn/build/*
 BenHall/lab1/build
 RishiB/build/*
 
+.vscode/*
+result/*

@@ -14,7 +14,7 @@
 
     hello_lib_overlay = final: prev: {
       hello_lib = final.callPackage ./hellolib.nix { };
-      hello_lib_exe = final.callPackage ./default.nix { inherit hellolib; };
+      hello_lib_exe = final.callPackage ./default.nix { };
     };
     my_overlays = [ hello_lib_overlay ];
 
