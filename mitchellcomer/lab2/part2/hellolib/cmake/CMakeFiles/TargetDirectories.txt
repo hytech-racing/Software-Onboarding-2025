@@ -1,0 +1,7 @@
+/home/mitch/Software-Onboarding-2025/mitchellcomer/lab2/part2/hellolib/cmake/CMakeFiles/hellolib.dir
+/home/mitch/Software-Onboarding-2025/mitchellcomer/lab2/part2/hellolib/cmake/CMakeFiles/edit_cache.dir
+/home/mitch/Software-Onboarding-2025/mitchellcomer/lab2/part2/hellolib/cmake/CMakeFiles/rebuild_cache.dir
+/home/mitch/Software-Onboarding-2025/mitchellcomer/lab2/part2/hellolib/cmake/CMakeFiles/list_install_components.dir
+/home/mitch/Software-Onboarding-2025/mitchellcomer/lab2/part2/hellolib/cmake/CMakeFiles/install.dir
+/home/mitch/Software-Onboarding-2025/mitchellcomer/lab2/part2/hellolib/cmake/CMakeFiles/install/local.dir
+/home/mitch/Software-Onboarding-2025/mitchellcomer/lab2/part2/hellolib/cmake/CMakeFiles/install/strip.dir

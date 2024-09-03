@@ -1,0 +1,6 @@
+/usr/local/lib/libhellolib.so
+/usr/local/lib/libhellolib.so
+/usr/local/lib/cmake/hellolib/hellolibTargets.cmake
+/usr/local/lib/cmake/hellolib/hellolibTargets-noconfig.cmake
+/usr/local/lib/cmake/hellolib/hellolibConfig.cmake
+/usr/local/include/hello_world.hpp
