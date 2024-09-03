@@ -8,20 +8,14 @@
 
   outputs = { self, nixpkgs, utils, hello_lib }:
   let
-        hello_lib = hello_lib.packages."x86_64-linux".default;
-
-
-    my_overlays = [ hello_lib_overlay ];
-
     pkgs = import nixpkgs {
       system = "x86_64-linux";
-      overlays = my_overlays;
     };
 
-  in {
-    overlays.default = nixpkgs.lib.composeManyExtensions my_overlays;
-
-    packages.x86_64-linux.default = pkgs.hello_app;
+   in {
+    packages.x86_64-linux.default = pkgs.callPackage ./default.nix {
+      hello_lib = hello_lib.packages."x86_64-linux".default;
+    };
 
     devShells.x86_64-linux.default = pkgs.mkShell rec {
       name = "nix-devshell";
