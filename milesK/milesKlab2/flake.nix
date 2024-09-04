@@ -15,16 +15,12 @@
         };
     in 
 
-#        {
-#            overlays.default = nixpkgs.lib.composeManyExtensions my_overlays;
-#
-#            packages.x86_64-linux =
-#            rec {
-#                hello_lib = pkgs.hello_lib;
-#                default = hello_lib;
-#            };
-#        };
     {
+        packages.x86_64-linux = {
+            hellolib = pkgs.hellolib;
+            main = pkgs.callPackage ./exe.nix { hellolib = pkgs.hellolib; };
+        };
+
         packages.x86_64-linux.default = pkgs.hello_lib;
         overlays.default = nixpkgs.lib.composeManyExtensions my_overlays;
     };
