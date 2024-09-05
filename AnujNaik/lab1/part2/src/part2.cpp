@@ -1,5 +1,5 @@
-// #include <part2.h>
-#include "../include/part2.h"
+#include <part2.h>
+// #include "../include/part2.h"
 #include <iostream>
 
 using namespace std;
