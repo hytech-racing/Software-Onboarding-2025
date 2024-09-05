@@ -5,10 +5,10 @@
     };
     outputs = {self, nixpkgs}:
     let
-        hello_lib_overlay = final: prev: {
-            hello_lib = final.callPackage ./default.nix { };
+        hellolib_overlay = final: prev: {
+            hellolib = final.callPackage ./default.nix { };
         };
-        my_overlays = [ hello_lib_overlay ];
+        my_overlays = [ hellolib_overlay ];
         pkgs = import nixpkgs {
             system = "x86_64-linux";
             overlays = [ self.overlays.default ];
@@ -18,10 +18,10 @@
     {
         packages.x86_64-linux = {
             hellolib = pkgs.hellolib;
-            main = pkgs.callPackage ./exe.nix { hellolib = pkgs.hellolib; };
+            hellolib_exe = pkgs.callPackage ./hellolib_exe.nix { hellolib = pkgs.hellolib; };
         };
 
-        packages.x86_64-linux.default = pkgs.hello_lib;
+        packages.x86_64-linux.default = pkgs.hellolib;
         overlays.default = nixpkgs.lib.composeManyExtensions my_overlays;
     };
 }

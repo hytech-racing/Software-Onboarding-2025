@@ -1,8 +1,8 @@
 { stdenv, cmake }:
 
 stdenv.mkDerivation rec {
-  pname = "main";
+  pname = "hellolib_exe";
   version = "0.1.0";
-  src = ./.;
+  src = ./hellolib_exe;
   nativeBuildInputs = [ cmake ];
 }
