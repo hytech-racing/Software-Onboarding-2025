@@ -12,3 +12,7 @@ add_executable(Lab2 src/main.cpp)
 
 # Link the hello_world library to the executable
 target_link_libraries(Lab2 PRIVATE hello_lib)
+
+include(GNUInstallDirs)
+
+install (TARGETS Lab2 DESTINATION ${CMAKE_INSTALL_BINDIR})

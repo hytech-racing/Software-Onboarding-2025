@@ -7,4 +7,4 @@ class hello_lib
         void hello_world();
 };
 
-#endif HELLO_LIB_H
+#endif
