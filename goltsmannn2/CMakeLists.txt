@@ -4,8 +4,15 @@ project(project
         DESCRIPTION "New project"
         LANGUAGES CXX)
 
-add_library(HelloWorldLibrary SHARED src/hello_world.cpp)
+
+
+
+add_library(HelloWorldLibrary STATIC src/hello_world.cpp)
 target_include_directories(HelloWorldLibrary PUBLIC include)
 
-add_executable(main_file src/main.cpp)
-target_link_libraries(main_file PUBLIC HelloWorldLibrary)
+add_executable(hello_exec src/main.cpp)
+target_link_libraries(hello_exec PUBLIC HelloWorldLibrary)
+
+install(TARGETS hello_exec
+            RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX/CMAKE_INSTALL_BINDIR}
+)
