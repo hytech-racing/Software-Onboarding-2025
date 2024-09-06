@@ -10,11 +10,11 @@
   let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
+      overlays = [ hello_lib.overlays.default ];
     };
 
    in {
     packages.x86_64-linux.default = pkgs.callPackage ./default.nix {
-      hello_lib = hello_lib.packages."x86_64-linux".default;
     };
 
     devShells.x86_64-linux.default = pkgs.mkShell rec {
