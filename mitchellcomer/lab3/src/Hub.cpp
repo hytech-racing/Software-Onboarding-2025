@@ -10,7 +10,8 @@ Hub::Hub(std::string server_ip, uint16_t port){
 
     memset((char *)&sAddr, 0, sizeof(sAddr));
     sAddr.sin_family = AF_INET;
-    sAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    // sAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    inet_pton(AF_INET, server_ip.c_str(), &sAddr.sin_addr);
     sAddr.sin_port = htons(port);
 }
 
