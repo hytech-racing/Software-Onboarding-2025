@@ -1,71 +1,6 @@
 {
   "nodes": {
-    "easy_cmake": {
-      "inputs": {
-        "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1722065012,
-        "narHash": "sha256-t5sDKfmN9isLJASCrvSzVEhbYH2mMeBrByMWvbpClmc=",
-        "owner": "RCMast3r",
-        "repo": "easy_cmake",
-        "rev": "06cfd8aab9e0d0d636c45c6d6014e29ae8b669bd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "RCMast3r",
-        "repo": "easy_cmake",
-        "type": "github"
-      }
-    },
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
-      "locked": {
-        "lastModified": 1719994518,
-        "narHash": "sha256-pQMhCCHyQGRzdfAkdJ4cIWiw+JNuWsTX7f0ZYSyz0VY=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "9227223f6d922fee3c7b190b2cc238a99527bbb7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
-      "locked": {
-        "lastModified": 1695825837,
-        "narHash": "sha256-4Ne11kNRnQsmSJCRSSNkFRSnHC4Y5gPDBIQGjjPfJiU=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "5cfafa12d57374f48bcc36fda3274ada276cf69e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-23.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-lib": {
-      "locked": {
-        "lastModified": 1719876945,
-        "narHash": "sha256-Fm2rDDs86sHy0/1jxTOKB1118Q0O3Uc7EC0iXvXKpbI=",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/5daf0514482af3f97abaefc78a6606365c9108e2.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/5daf0514482af3f97abaefc78a6606365c9108e2.tar.gz"
-      }
-    },
-    "nixpkgs_2": {
       "locked": {
         "lastModified": 1725405699,
         "narHash": "sha256-XNwZMspHYr8FNcEyq9s/E0fRsVcQvT+Gujw2vk2ojcg=",
@@ -100,8 +35,7 @@
     },
     "root": {
       "inputs": {
-        "easy_cmake": "easy_cmake",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "nixutils": "nixutils"
       }
     },

@@ -3,11 +3,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
     nixutils.url = "github:numtide/flake-utils";
-    easy_cmake.url = "github:RCMast3r/easy_cmake";
   };
 
   outputs = {
-    self, nixpkgs, nixutils, easy_cmake
+    self, nixpkgs, nixutils
   }:
   
   let hello_world_overlay = final: prev: {
