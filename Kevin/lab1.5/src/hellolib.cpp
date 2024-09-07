@@ -1,5 +1,4 @@
-
-#include "../include/hellolib.h"
+#include "hellolib.hpp"
 #include <iostream>
 
 

@@ -1,12 +1,5 @@
-//
-// Created by Kevin Xiang on 9/1/24.
-//
-
-
-
-#include"../include/hellolib.h"
-#pragma once
-#include<iostream>
+#include "hellolib.hpp"
+#include <iostream>
 
 int main() {
   hellolib::helloWorld();
