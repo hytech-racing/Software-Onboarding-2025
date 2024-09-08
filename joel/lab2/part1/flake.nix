@@ -16,21 +16,21 @@
       };
       my_overlays = [ easy_cmake.overlays.default vn_lib_overlay py_vn_lib_overlay ];
       pkgs = import nixpkgs {
-        system = "x86_64-linux";
+        system = "aarch64-darwin";
         overlays = [ self.overlays.default ];
       };
     in
     {
       overlays.default = nixpkgs.lib.composeManyExtensions my_overlays;
 
-      packages.x86_64-linux =
+      packages.aarch64-darwin =
         rec {
           vn_lib = pkgs.vn_lib;
           py_vn_lib = pkgs.py_vn_lib;
           default = vn_lib;
         };
 
-      devShells.x86_64-linux.default =
+      devShells.aarch64-darwin.default =
         pkgs.mkShell rec {
           # Update the name to something that suites your project.
           name = "nix-devshell";
