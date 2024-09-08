@@ -6,7 +6,7 @@
 using example::SimpleMessage;  // Bring SimpleMessage into scope
 
 int main() {
-    UdpSocket server(8080);  // Create a UDP socket on port 8080
+    UdpSocket server(1173);  // Create a UDP socket on port 8080
 
     while (true) {  // Infinite loop to keep the server running
         std::string received_data;

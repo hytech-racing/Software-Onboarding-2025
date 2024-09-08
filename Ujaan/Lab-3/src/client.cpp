@@ -23,7 +23,7 @@ int main() {
     std::string serialized_message = message.SerializeAsString();
   
     // Send the message to the server
-    client.sendMessage(serialized_message, "127.0.0.1", 8080);
+    client.sendMessage(serialized_message, "192.168.203.1", 1173);
 
     // Receive the response from the server
     std::string received_data;
