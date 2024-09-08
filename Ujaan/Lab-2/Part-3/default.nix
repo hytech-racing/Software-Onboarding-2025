@@ -6,6 +6,7 @@ stdenv.mkDerivation {
 
   src = ./.;
 
-  buildInputs = [ cmake hello_lib ];
+  nativeBuildInputs = [ cmake ];
+  buildInputs = [ hello_lib ];
 
 }

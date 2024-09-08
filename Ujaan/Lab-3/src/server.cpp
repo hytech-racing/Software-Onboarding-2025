@@ -28,9 +28,7 @@ int main() {
         }
 
         // Allow input of the server's response message
-        std::string server_response;
-        std::cout << "Enter response message: ";
-        std::getline(std::cin, server_response);
+        std::string server_response = "Acknowledged.";
 
         // Prepare a response
         SimpleMessage message;
