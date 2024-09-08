@@ -7,6 +7,5 @@ project(Onboarding VERSION 1.0
                   DESCRIPTION "Onboarding"
                   LANGUAGES CXX)
 
-add_library(hello STATIC hello_world.cpp hello_world.hpp)
 
 add_executable(a src/main.cpp)
