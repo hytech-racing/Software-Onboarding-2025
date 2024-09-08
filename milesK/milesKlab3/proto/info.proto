@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package info;
+
+message generic_message {
+  string text = 1;
+}
