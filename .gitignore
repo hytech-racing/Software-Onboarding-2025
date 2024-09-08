@@ -3,6 +3,8 @@ build/
 ShangEn/build/*
 BenHall/lab1/build
 RishiB/build/*
+mitchellcomer/.vscode/*
+mitchellcomer/result
+Ujaan/Lab-2/Part-1/build/*
+milesK/milesKlab1/build
 
-.vscode/*
-/result
