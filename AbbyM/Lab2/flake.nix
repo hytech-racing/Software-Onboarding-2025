@@ -6,10 +6,9 @@
         utils.url = "github:numtide/flake-utils";
     };
 
-    outputs = { self, nixpkgs, utils} : {
+    outputs = { self, nixpkgs, utils} : 
         
         let 
-
             hello_lib_overlay = final: prev: {
                 hello_lib = final.callPackage ./default.nix {};
             };
@@ -26,5 +25,5 @@
             packages.x86_64-linux.default = pkgs.hello_lib;
             overlays.default = nixpkgs.lib.composeManyExtensions my_overlays;
         };
-    }
+    
 }
