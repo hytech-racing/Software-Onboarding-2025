@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15...3.30)
 
-project(MyProject VERSION 1.0
+project(HelloWorldLab1 VERSION 1.0
                   DESCRIPTION "lab 1 hello world"
                   LANGUAGES CXX)
 
