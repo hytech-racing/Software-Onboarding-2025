@@ -1,8 +1,10 @@
-#include "../include/hello_world.h"
+#include "hello_world.h"
 #include <iostream>
 
+HelloWorld::HelloWorld() // constructor definition
+{}
 
-void HelloWorld::print() 
+void HelloWorld::print() const // print function definition
 {
     std::cout << "Hello, World!\n";
 };

@@ -1,4 +1,4 @@
-#include "hello_world.cpp"
+#include "hello_world.h"
 
 int main()
 {
