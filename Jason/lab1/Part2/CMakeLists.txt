@@ -5,7 +5,7 @@ project(Lab1_Hard)
 add_library(hello_world STATIC src/hello_world.cpp)
 
 # Specify include directories for this library
-target_include_directories(hello_world PUBLIC ./include)
+target_include_directories(hello_world PUBLIC include)
 
 # Define the executable
 add_executable(Lab1_Hard src/main.cpp)

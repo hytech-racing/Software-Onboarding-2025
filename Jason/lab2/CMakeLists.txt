@@ -5,7 +5,7 @@ project(Lab2)
 add_library(hello_lib STATIC src/hello_lib.cpp)
 
 # Specify include directories for this library
-target_include_directories(hello_lib PUBLIC ./include)
+target_include_directories(hello_lib PUBLIC include)
 
 # Define the executable
 add_executable(Lab2 src/main.cpp)
