@@ -6,8 +6,8 @@ add_library(hello_lib STATIC src/hello.cpp)
 
 
 target_include_directories(hello_lib PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-    $<INSTALL_INTERFACE:src>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
 )
 
 include(GNUInstallDirs)
@@ -17,7 +17,7 @@ install(TARGETS hello_lib
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    INCLUDES DESTINATION src
+    INCLUDES DESTINATION INCLUDE
 )
 
 

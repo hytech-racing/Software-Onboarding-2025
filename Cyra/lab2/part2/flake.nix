@@ -19,7 +19,7 @@
 
     my_overlays = [ hello_app_overlay ];
 
-        pkgs = import nixpkgs {
+      pkgs = import nixpkgs {
       system = "aarch64-darwin";
       overlays = [ hello_app_overlay ];
     };

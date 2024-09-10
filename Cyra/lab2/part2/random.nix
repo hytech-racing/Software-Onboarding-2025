@@ -3,7 +3,7 @@
 stdenv.mkDerivation rec {
   pname = "hello_app";
   version = "0.1.0";
-  src = ./product;
+  src = ./src;
   nativeBuildInputs = [ cmake ];
   buildInputs = [ hello_lib ];
 }

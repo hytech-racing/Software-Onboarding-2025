@@ -1,0 +1,47 @@
+cmake_minimum_required(VERSION 3.14)
+project(nixintro)
+include_directories(include)
+
+
+add_library(hellolib SHARED src/hellolib.cpp)
+add_executable(nixtest src/main.cpp)
+
+target_link_libraries(hellolib PUBLIC nixtest)
+
+install(TARGETS hellolib DESTINATION ${CMAKE_INSTALL_PREFIX/bin})
+
+
+include(GNUInstallDirs)
+install(TARGETS hellolib
+  EXPORT hellolibTargets
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  PUBLIC_HEADER DESTINATION include
+)
+
+install(EXPORT hellolibTargets
+  FILE hellolibTargets.cmake
+  NAMESPACE hellolib::  
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/hellolib
+)
+
+
+include(CMakePackageConfigHelpers)
+configure_package_config_file(${CMAKE_CURRENT_LIST_DIR}/cmake/hellolibConfig.cmake.in
+  "${CMAKE_CURRENT_BINARY_DIR}/hellolibConfig.cmake"
+  INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/hellolib
+)
+
+install(FILES
+  "${CMAKE_CURRENT_BINARY_DIR}/hellolibConfig.cmake"
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/hellolib
+)
+
+install(
+    DIRECTORY include/
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/include
+    FILES_MATCHING PATTERN "*.h*"
+    )
+
+    
