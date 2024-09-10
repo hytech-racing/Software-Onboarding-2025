@@ -11,7 +11,7 @@
   let
     pkgs = import nixpkgs {
     system = "aarch64-darwin";
-
+  };
 
   in {
     packages.aarch64-darwin.default = pkgs.hello_app;
