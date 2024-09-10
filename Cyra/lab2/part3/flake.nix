@@ -1,19 +1,19 @@
 {
-  description = "flake part 2";
+  description = "flake part 3";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     utils.url = "github:numtide/flake-utils";
     hello_lib.url = "github:skyraal/nixlab2";
-    
-  };
-  
-  outputs = { self, nixpkgs, utils }:
-  let
-    pkgs = import nixpkgs {
-    system = "aarch64-darwin";
   };
 
-  in {
+  outputs = { self, nixpkgs, utils, hello_lib }:
+  let
+    pkgs = import nixpkgs {
+      system = "aarch64-darwin";
+      overlays = [ hello_lib.overlays.default ];
+    };
+
+   in {
     packages.aarch64-darwin.default = pkgs.hello_app;
     devShells.aarch64-darwin.default = pkgs.mkShell rec {
       name = "nix-devshell";
