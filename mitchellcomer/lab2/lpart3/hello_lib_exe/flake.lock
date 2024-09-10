@@ -1,0 +1,62 @@
+{
+  "nodes": {
+    "hellolib": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1725400916,
+        "narHash": "sha256-D8WlkB77tFX2W1dQ9i7jHtWtW/l5fkY8OZbSYbjpbzg=",
+        "owner": "Comerm28",
+        "repo": "hellolib",
+        "rev": "c7bcb122baa7dd2ea2b5d9ff914f753a2f88f0b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Comerm28",
+        "repo": "hellolib",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1725103162,
+        "narHash": "sha256-Ym04C5+qovuQDYL/rKWSR+WESseQBbNAe5DsXNx5trY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "12228ff1752d7b7624a54e9c1af4b222b3c1073b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1725103162,
+        "narHash": "sha256-Ym04C5+qovuQDYL/rKWSR+WESseQBbNAe5DsXNx5trY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "12228ff1752d7b7624a54e9c1af4b222b3c1073b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "hellolib": "hellolib",
+        "nixpkgs": "nixpkgs_2"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
