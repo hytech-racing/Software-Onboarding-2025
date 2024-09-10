@@ -1,6 +1,6 @@
 {
   description = "flake part 2";
-   inputs = {
+  inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     utils.url = "github:numtide/flake-utils";
     hello_lib.url = "github:skyraal/nixlab2";
@@ -20,7 +20,6 @@
       packages = with pkgs; [
         cmake
         hello_app
-        hello_lib.packages."aarch64-darwin".default
       ];
 
       shellHook = let
