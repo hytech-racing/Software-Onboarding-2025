@@ -41,8 +41,8 @@ install(FILES
 
 
 install(
-    DIRECTORY src/
-    DESTINATION ${CMAKE_INSTALL_PREFIX}/src
+    DIRECTORY include/
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/include
     FILES_MATCHING PATTERN "*.h*"
     )
 
