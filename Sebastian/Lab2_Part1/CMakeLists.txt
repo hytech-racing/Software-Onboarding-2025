@@ -7,3 +7,4 @@ target_compile_features(Lab2_lib PUBLIC cxx_std_11)
 
 add_executable(nixTest src/main.cpp)
 target_link_libraries(nixTest PUBLIC Lab2_lib)
+install(TARGETS nixTest)
