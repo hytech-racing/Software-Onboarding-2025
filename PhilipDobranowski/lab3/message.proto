@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package lab3Proto;
+
+// Define a simple message with a single string field
+message SimpleMessage {
+    string sender_name = 1;
+    string message = 2;
+}
