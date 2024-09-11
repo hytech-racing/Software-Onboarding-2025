@@ -4,13 +4,14 @@
 
 int main()
 {
+    // Comm comm("192.168.203.1", 13337);
     Comm comm("127.0.0.1", 13337);
 
     std::string buf;
     lab3Proto::SimpleMessage msg;
 
     std::cout << "Enter your message: ";
-    std::cin >> buf;
+    std::getline(std::cin, buf);
     msg.set_sender_name("Client");
     msg.set_message(buf);
 
