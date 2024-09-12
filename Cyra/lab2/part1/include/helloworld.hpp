@@ -1,4 +1,5 @@
-
+#ifndef HELLOWORLD
+#define HELLOWORLD
 
 class Hello
 {
@@ -6,3 +7,4 @@ class Hello
         void hello_world();
 };
 
+#endif
