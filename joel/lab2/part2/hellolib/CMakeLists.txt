@@ -4,7 +4,6 @@ project(hellolib VERSION 1.0 DESCRIPTION "bar library")
 # Define the libraries
 add_library(hellolib STATIC src/hellolib.cpp)
 
-
 # Specify include directories for the bar library 
 target_include_directories(hellolib PUBLIC
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
