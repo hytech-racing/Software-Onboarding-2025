@@ -2,11 +2,8 @@
   description = "fsae onboarding c++ library";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-    utils.url = "github:numtide/flake-utils";
-    easy_cmake.url = "github:RCMast3r/easy_cmake";
   };
-  outputs = { self, nixpkgs, utils, easy_cmake }:
+  outputs = { self }:
     let
       vn_lib_overlay = final: prev: {
         vn_lib = final.callPackage ./default.nix { };
