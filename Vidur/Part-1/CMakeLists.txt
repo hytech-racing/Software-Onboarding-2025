@@ -12,3 +12,5 @@ target_include_directories(helloworld_lib PUBLIC include)
 add_executable(HelloWorld src/main.cpp)
 
 target_link_libraries(HelloWorld PUBLIC helloworld_lib)
+
+install(TARGETS HelloWorld DESTINATION ${CMAKE_INSTALL_BINDIR})
