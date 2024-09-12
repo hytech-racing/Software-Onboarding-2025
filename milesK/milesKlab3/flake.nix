@@ -2,15 +2,17 @@
     description = "Lab 3 Flake";
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+        utils.url = "github:numtide/flake-utils";
     };
-    outputs = {self, nixpkgs}:
+    outputs = {self, nixpkgs, utils}:
     let
-    pkgs = import nixpkgs {
-      system = "x86_64-linux";
-      overlays = [ self.overlays.default ];
-    };  
-
-    {
-        overlays.default = nixpkgs.lib.composeManyExtensions my_overlays;
-    };
+        system = "x86_64-linux";
+        legacyPackages.x86_64-linux =
+        import nixpkgs {
+            inherit system;
+            overlays = [
+                (final: _: { lab3 = final.callPackage ./default.nix { }; })
+            ];
+        };
+    in
 }

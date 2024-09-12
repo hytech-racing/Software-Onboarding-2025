@@ -3,5 +3,6 @@ syntax = "proto3";
 package info;
 
 message generic_message {
-  string text = 1;
+  string authorName = 1;
+  string contents = 2;
 }

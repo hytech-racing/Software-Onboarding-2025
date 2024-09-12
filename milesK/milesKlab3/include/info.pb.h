@@ -204,22 +204,39 @@ class generic_message final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTextFieldNumber = 1,
+    kAuthorNameFieldNumber = 1,
+    kContentsFieldNumber = 2,
   };
-  // string text = 1;
-  void clear_text() ;
-  const std::string& text() const;
+  // string authorName = 1;
+  void clear_authorname() ;
+  const std::string& authorname() const;
   template <typename Arg_ = const std::string&, typename... Args_>
-  void set_text(Arg_&& arg, Args_... args);
-  std::string* mutable_text();
-  PROTOBUF_NODISCARD std::string* release_text();
-  void set_allocated_text(std::string* value);
+  void set_authorname(Arg_&& arg, Args_... args);
+  std::string* mutable_authorname();
+  PROTOBUF_NODISCARD std::string* release_authorname();
+  void set_allocated_authorname(std::string* value);
 
   private:
-  const std::string& _internal_text() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_text(
+  const std::string& _internal_authorname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_authorname(
       const std::string& value);
-  std::string* _internal_mutable_text();
+  std::string* _internal_mutable_authorname();
+
+  public:
+  // string contents = 2;
+  void clear_contents() ;
+  const std::string& contents() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_contents(Arg_&& arg, Args_... args);
+  std::string* mutable_contents();
+  PROTOBUF_NODISCARD std::string* release_contents();
+  void set_allocated_contents(std::string* value);
+
+  private:
+  const std::string& _internal_contents() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_contents(
+      const std::string& value);
+  std::string* _internal_mutable_contents();
 
   public:
   // @@protoc_insertion_point(class_scope:info.generic_message)
@@ -228,8 +245,8 @@ class generic_message final :
 
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 0,
-      33, 2>
+      1, 2, 0,
+      47, 2>
       _table_;
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -245,7 +262,8 @@ class generic_message final :
                               ::google::protobuf::Arena* arena);
         inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                               ::google::protobuf::Arena* arena, const Impl_& from);
-    ::google::protobuf::internal::ArenaStringPtr text_;
+    ::google::protobuf::internal::ArenaStringPtr authorname_;
+    ::google::protobuf::internal::ArenaStringPtr contents_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -269,57 +287,110 @@ class generic_message final :
 
 // generic_message
 
-// string text = 1;
-inline void generic_message::clear_text() {
+// string authorName = 1;
+inline void generic_message::clear_authorname() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  _impl_.text_.ClearToEmpty();
+  _impl_.authorname_.ClearToEmpty();
 }
-inline const std::string& generic_message::text() const
+inline const std::string& generic_message::authorname() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:info.generic_message.text)
-  return _internal_text();
+  // @@protoc_insertion_point(field_get:info.generic_message.authorName)
+  return _internal_authorname();
 }
 template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void generic_message::set_text(Arg_&& arg,
+inline PROTOBUF_ALWAYS_INLINE void generic_message::set_authorname(Arg_&& arg,
                                                      Args_... args) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   ;
-  _impl_.text_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:info.generic_message.text)
+  _impl_.authorname_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:info.generic_message.authorName)
 }
-inline std::string* generic_message::mutable_text() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_text();
-  // @@protoc_insertion_point(field_mutable:info.generic_message.text)
+inline std::string* generic_message::mutable_authorname() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_authorname();
+  // @@protoc_insertion_point(field_mutable:info.generic_message.authorName)
   return _s;
 }
-inline const std::string& generic_message::_internal_text() const {
+inline const std::string& generic_message::_internal_authorname() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
-  return _impl_.text_.Get();
+  return _impl_.authorname_.Get();
 }
-inline void generic_message::_internal_set_text(const std::string& value) {
+inline void generic_message::_internal_set_authorname(const std::string& value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   ;
-  _impl_.text_.Set(value, GetArena());
+  _impl_.authorname_.Set(value, GetArena());
 }
-inline std::string* generic_message::_internal_mutable_text() {
+inline std::string* generic_message::_internal_mutable_authorname() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   ;
-  return _impl_.text_.Mutable( GetArena());
+  return _impl_.authorname_.Mutable( GetArena());
 }
-inline std::string* generic_message::release_text() {
+inline std::string* generic_message::release_authorname() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  // @@protoc_insertion_point(field_release:info.generic_message.text)
-  return _impl_.text_.Release();
+  // @@protoc_insertion_point(field_release:info.generic_message.authorName)
+  return _impl_.authorname_.Release();
 }
-inline void generic_message::set_allocated_text(std::string* value) {
+inline void generic_message::set_allocated_authorname(std::string* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  _impl_.text_.SetAllocated(value, GetArena());
+  _impl_.authorname_.SetAllocated(value, GetArena());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.text_.IsDefault()) {
-          _impl_.text_.Set("", GetArena());
+        if (_impl_.authorname_.IsDefault()) {
+          _impl_.authorname_.Set("", GetArena());
         }
   #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:info.generic_message.text)
+  // @@protoc_insertion_point(field_set_allocated:info.generic_message.authorName)
+}
+
+// string contents = 2;
+inline void generic_message::clear_contents() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.contents_.ClearToEmpty();
+}
+inline const std::string& generic_message::contents() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:info.generic_message.contents)
+  return _internal_contents();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void generic_message::set_contents(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.contents_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:info.generic_message.contents)
+}
+inline std::string* generic_message::mutable_contents() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_contents();
+  // @@protoc_insertion_point(field_mutable:info.generic_message.contents)
+  return _s;
+}
+inline const std::string& generic_message::_internal_contents() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.contents_.Get();
+}
+inline void generic_message::_internal_set_contents(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.contents_.Set(value, GetArena());
+}
+inline std::string* generic_message::_internal_mutable_contents() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.contents_.Mutable( GetArena());
+}
+inline std::string* generic_message::release_contents() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:info.generic_message.contents)
+  return _impl_.contents_.Release();
+}
+inline void generic_message::set_allocated_contents(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.contents_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.contents_.IsDefault()) {
+          _impl_.contents_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:info.generic_message.contents)
 }
 
 #ifdef __GNUC__

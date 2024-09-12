@@ -1,9 +1,9 @@
 { stdenv, cmake }:
 
 stdenv.mkDerivation rec {
-  pname = "INSERTNAME";
+  pname = "lab3";
   version = "0.1.0";
-  src = ./INSERT;
+  src = ./.;
   nativeBuildInputs = [ cmake ];
   buildInputs = [ protobuf ]
 }
