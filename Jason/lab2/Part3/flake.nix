@@ -9,7 +9,7 @@
   outputs = { self, nixpkgs, hellolib }: 
     let 
     pkgs = import nixpkgs {
-      system = "x86_64-linux";
+      system = "aarch64-darwin";
       overlays = [ self.overlays.default hellolib.overlays.default ];
     };  
 
@@ -17,11 +17,9 @@
       hello_lib_exe = final.callPackage ./default.nix { };
     };
     my_overlays = [ hello_lib_overlay ];
-
-    
   in
   {      
-    packages.x86_64-linux.default = pkgs.hello_lib;
+    packages.aarch64-darwin.default = pkgs.hello_world;
     overlays.default = nixpkgs.lib.composeManyExtensions my_overlays;
   };
 }
