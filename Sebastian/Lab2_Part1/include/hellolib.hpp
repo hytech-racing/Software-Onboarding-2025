@@ -1,5 +1,5 @@
-#ifndef HELLOWORLD_HPP
-#define HELLOWORLD_HPP
+#ifndef HELLOLIB_HPP
+#define HELLOLIB_HPP
 
 class HelloWorld {
     public: 
