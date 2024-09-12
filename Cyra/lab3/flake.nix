@@ -6,8 +6,9 @@
 
   outputs = { self, nixpkgs }:
   let
-    system = "aarch64-darwin"
-    legacyPackages = import nixpkgs {
+    system = "aarch64-darwin";
+    legacyPackages = 
+      import nixpkgs {
       inherit system;
       overlays = [
         (final: _: { lab3 = final.callPackage ./default.nix { }; })
