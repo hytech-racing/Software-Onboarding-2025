@@ -6,11 +6,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1726005835,
-        "narHash": "sha256-llmZP6mI6oQlFp+cP9VnPqcwz8GT84gDmfIlG/dXPMs=",
+        "lastModified": 1726109466,
+        "narHash": "sha256-OAnq17QXQ0lCqC9dsXXVbzZ6Bh9AOFIlvoyjAQuoL70=",
         "owner": "skyraal",
         "repo": "nixlab2",
-        "rev": "c5e9898bc3f696e27398163422ebd68748c282b1",
+        "rev": "4296822a08a8bfee236447a828e7e623b307fd99",
         "type": "github"
       },
       "original": {
