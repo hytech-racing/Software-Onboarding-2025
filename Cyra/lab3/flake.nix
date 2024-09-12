@@ -6,7 +6,7 @@
 
   outputs = { self, nixpkgs }:
   let
-    system = "aarch64-darwin"
+    system = "aarch64-darwin";
     legacyPackages = import nixpkgs {
       inherit system;
       overlays = [
