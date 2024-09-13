@@ -1,9 +1,0 @@
-/Users/cyra/Documents/GitHub/Software-Onboarding-2025/cyra/lab3/CMakeFiles/message.dir
-/Users/cyra/Documents/GitHub/Software-Onboarding-2025/cyra/lab3/CMakeFiles/server.dir
-/Users/cyra/Documents/GitHub/Software-Onboarding-2025/cyra/lab3/CMakeFiles/client.dir
-/Users/cyra/Documents/GitHub/Software-Onboarding-2025/cyra/lab3/CMakeFiles/edit_cache.dir
-/Users/cyra/Documents/GitHub/Software-Onboarding-2025/cyra/lab3/CMakeFiles/rebuild_cache.dir
-/Users/cyra/Documents/GitHub/Software-Onboarding-2025/cyra/lab3/CMakeFiles/list_install_components.dir
-/Users/cyra/Documents/GitHub/Software-Onboarding-2025/cyra/lab3/CMakeFiles/install.dir
-/Users/cyra/Documents/GitHub/Software-Onboarding-2025/cyra/lab3/CMakeFiles/install/local.dir
-/Users/cyra/Documents/GitHub/Software-Onboarding-2025/cyra/lab3/CMakeFiles/install/strip.dir
