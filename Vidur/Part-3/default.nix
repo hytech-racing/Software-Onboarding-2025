@@ -1,4 +1,4 @@
-{ stdenv, cmake  }:
+{ stdenv, cmake, hellolib }:
 
 stdenv.mkDerivation rec {
     pname = "helloapp";
@@ -6,4 +6,5 @@ stdenv.mkDerivation rec {
     src = ./.; # Path to your source directory
 
     nativeBuildInputs = [ cmake ];
+    buildInputs = [hellolib];
 }
