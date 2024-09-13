@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstring> // For memset
 
-#include "proto/message.pb.h"
+#include "message.pb.h"
 
 /**
  * @brief Class Client
@@ -68,6 +68,6 @@ bool Client::ReceiveMessage(message::data& message) {
         return false;
     }
 
-    std::cout << "Received message from " << message.sender_name() << std::endl;
+    std::cout << "Received " << message.sender_name() << std::endl;
     return true;
 }

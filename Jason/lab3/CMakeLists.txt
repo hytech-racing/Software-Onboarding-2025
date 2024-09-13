@@ -5,9 +5,22 @@ project(Lab3)
 find_package(Protobuf REQUIRED)
 
 # Define the libraries
-add_library(msg STATIC src/proto/message.pb.cc)
+add_library(msg STATIC proto/message.pb.cc)
 add_library(server STATIC src/server.cpp)
 add_library(client STATIC src/client.cpp)
+
+target_include_directories(client PUBLIC
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+    "$<INSTALL_INTERFACE:include>"
+)
+target_include_directories(server PUBLIC
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+    "$<INSTALL_INTERFACE:include>"
+)
+target_include_directories(msg PUBLIC
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/proto>"
+    "$<INSTALL_INTERFACE:include>"
+)
 
 #Link the necessary targets 
 target_link_libraries(msg PUBLIC protobuf::libprotobuf)

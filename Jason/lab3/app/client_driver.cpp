@@ -1,5 +1,4 @@
 #include "client.hpp" 
-#include "server.hpp"
 #include <iostream>
 
 /**
@@ -19,23 +18,35 @@ int main() {
     std::cout << "Press Enter to send a message: ";
     std::getline(std::cin, input);
 
-    if (input.empty()) {
-        // Send the message
-        if (client.SendMessage(message)) {
-            std::cout << "Message sent successfully" << std::endl;
-        } else {
-            std::cerr << "Failed to send message" << std::endl;
+    while (true) {
+        std::cout << "Press Enter to send a message (or type -1 to exit): ";
+        std::getline(std::cin, input);
+
+        // If the user enters -1, break the loop and exit
+        if (input == "-1") {
+            std::cout << "Exiting program..." << std::endl;
+            break;
         }
 
-        // Receive and print the response!
-        message::data responseMessage;
-        if (client.ReceiveMessage(responseMessage)) {
-            ;
+        // If Enter is pressed (input is empty), send the message
+        if (input.empty()) {
+            // Send the message
+            if (client.SendMessage(message)) {
+                std::cout << "Message sent successfully" << std::endl;
+            } else {
+                std::cerr << "Failed to send message" << std::endl;
+            }
+
+            // Receive and print the response
+            message::data responseMessage;
+            if (client.ReceiveMessage(responseMessage)) {
+                std::cout << "Received response from server" << std::endl;
+            } else {
+                std::cerr << "Failed to receive response" << std::endl;
+            }
         } else {
-            std::cerr << "Failed to receive response" << std::endl;
+            std::cout << "No message sent." << std::endl;
         }
-    } else {
-        std::cout << "No message sent." << std::endl;
     }
 
     return 0;

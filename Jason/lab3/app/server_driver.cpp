@@ -1,4 +1,3 @@
-#include "client.hpp" // Update include path
 #include "server.hpp"
 #include <iostream>
 

@@ -6,7 +6,7 @@
 #include <sys/socket.h> // For socket functions
 #include <unistd.h>     // For close
 
-#include "src/proto/message.pb.h"
+#include "message.pb.h"
 
 class Server {
 public:
