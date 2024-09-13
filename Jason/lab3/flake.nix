@@ -9,15 +9,17 @@
     self, nixpkgs, nixutils
   }:
   
-  let lab3_overlay = final: prev: {
-    lab3 = final.callPackage ./default.nix { };
-  };
-
-  my_overlays = [ lab3_overlay ];
-  pkgs = import nixpkgs {
+  let 
     system = "aarch64-darwin";
-    overlays = [ self.overlays.default ];
-  };
+    lab3_overlay = final: prev: {
+      lab3 = final.callPackage ./default.nix { };
+    };
+
+    my_overlays = [ lab3_overlay ];
+    pkgs = import nixpkgs {
+      system = "aarch64-darwin";
+      overlays = [ self.overlays.default ];
+    };
 
   in {
     overlays.default = nixpkgs.lib.composeManyExtensions my_overlays;
@@ -40,5 +42,13 @@
           export PS1="$(echo -e '\uF121') {\[$(tput sgr0)\]\[\033[38;5;228m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]} (${name}) \\$ \[$(tput sgr0)\]"
         '';
       };
+
+      legacyPackages.aarch64-darwin =
+    import nixpkgs {
+      inherit system;
+      overlays = [
+        (final: _: { lab3 = final.callPackage ./default.nix { }; })
+      ];
+    };
   };
 }
