@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package example;
+package message;
 
 // Define a simple message with a single string field
-message SimpleMessage {
-  string text = 1;
+message data {
+  string sender_name = 1;
 }
