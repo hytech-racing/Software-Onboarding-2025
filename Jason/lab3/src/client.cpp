@@ -1,6 +1,7 @@
 #include "UDPSocket.hpp"
 #include <iostream>
 #include <string>
+#include "proto/message.pb.h"
 
 int main() {
     UDPSocket udpSocket;

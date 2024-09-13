@@ -9,11 +9,11 @@
     self, nixpkgs, nixutils
   }:
   
-  let hello_world_overlay = final: prev: {
-    hello_world = final.callPackage ./default.nix { };
+  let lab3_overlay = final: prev: {
+    lab3 = final.callPackage ./default.nix { };
   };
 
-  my_overlays = [ hello_world_overlay ];
+  my_overlays = [ lab3_overlay ];
   pkgs = import nixpkgs {
     system = "aarch64-darwin";
     overlays = [ self.overlays.default ];
@@ -24,8 +24,8 @@
 
     packages.aarch64-darwin =
       rec {
-        hello_world = pkgs.hello_world;
-        default = hello_world;
+        lab3 = pkgs.lab3;
+        default = lab3;
       };
 
     devShells.aarch64-darwin.default =
@@ -33,7 +33,8 @@
         name = "nix-devshell";
         packages = with pkgs; [
           cmake
-          hello_world
+          protobuf
+          lab3
         ];
         shellHook = ''
           export PS1="$(echo -e '\uF121') {\[$(tput sgr0)\]\[\033[38;5;228m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]} (${name}) \\$ \[$(tput sgr0)\]"
