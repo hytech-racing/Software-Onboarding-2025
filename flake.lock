@@ -1,0 +1,60 @@
+{
+  "nodes": {
+    "HelloLibrary": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1726251794,
+        "narHash": "sha256-BQu3mYpZNFOHzCE5z2urpRB88hJi+4EMQ1GONk9sfSA=",
+        "owner": "goltsmannn",
+        "repo": "nix_cmake_project",
+        "rev": "87120e1e114c3af8ca4cce3b8b1df73c49da9eca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "goltsmannn",
+        "repo": "nix_cmake_project",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1726179716,
+        "narHash": "sha256-IBYztl18KiRlVDyJPnDsTRJ95wFO5UUcT/MlBd/Znt0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ffa39336d683ea9cb66635a005ef2471b2ecbbd5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1726258159,
+        "narHash": "sha256-/qX5ClbhHoGIjb9Efddyd9fdAKWLohSKloaS8ECBbe8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "12a82a757596b53251ae4c94e6e1ca0728230746",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "HelloLibrary": "HelloLibrary",
+        "nixpkgs": "nixpkgs_2"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
