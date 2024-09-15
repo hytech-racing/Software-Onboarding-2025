@@ -23,7 +23,7 @@ int main() {
     std::string serialized_message = message.SerializeAsString();
 
     // Send the serialized message to the server
-    client.sendMessage(serialized_message, "127.0.0.1", 1173);  // Use loopback if on the same machine
+    client.sendMessage(serialized_message, "192.168.203.1", 1173);  // Use loopback if on the same machine
 
     // Wait for a response from the server
     std::string received_data;
