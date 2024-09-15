@@ -10,15 +10,14 @@
     outputs = { self, nixpkgs, utils, hellolib }:
         let
             helloworld_overlay = final: prev: rec {
-                helloworld = final.callPackage ./default.nix {
-                };
+                helloworld = final.callPackage ./default.nix {};
             };
 
             my_overlays = [ helloworld_overlay hellolib.overlays.default ];
 
             pkgs = import nixpkgs {
                 system = "x86_64-linux";
-                overlays = [ self.overlays.default hellolib.overlays.default ];
+                overlays = [ self.overlays.default ];
             };
 
             in {

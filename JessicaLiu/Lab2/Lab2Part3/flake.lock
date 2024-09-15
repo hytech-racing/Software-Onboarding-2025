@@ -6,11 +6,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1726436057,
-        "narHash": "sha256-Zc6eiAFEsK+2Vo8c+GMKVciWHumdYIjW7OuYTxQ8HP8=",
+        "lastModified": 1726437344,
+        "narHash": "sha256-jdGqYmLlVZKybw09O/oeSw8q+6RfZpFN8asFTmQ0t/Q=",
         "owner": "jessicaliu06",
         "repo": "hytech_software_onboarding",
-        "rev": "d4491fdaf6849bff748da578a323000513ca3815",
+        "rev": "81a1ea32940f7a7817cbc9769e78ec597c31ddac",
         "type": "github"
       },
       "original": {
@@ -21,11 +21,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1726435665,
-        "narHash": "sha256-TXNL+xGGkRRrrHWQdZ3BtG2Ldkq4xWX7MQmjfPDn1DA=",
+        "lastModified": 1726437619,
+        "narHash": "sha256-7efLfSdg5OVQocqMW1j4JQJVALK9TToUVT5IIL5nxaE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d109b34ab69e3492124000291c178ef6ebe7f67a",
+        "rev": "ba74d072454dc3fb1bc651fb67a1aa1467cb5942",
         "type": "github"
       },
       "original": {
@@ -36,11 +36,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1726435665,
-        "narHash": "sha256-TXNL+xGGkRRrrHWQdZ3BtG2Ldkq4xWX7MQmjfPDn1DA=",
+        "lastModified": 1726437619,
+        "narHash": "sha256-7efLfSdg5OVQocqMW1j4JQJVALK9TToUVT5IIL5nxaE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d109b34ab69e3492124000291c178ef6ebe7f67a",
+        "rev": "ba74d072454dc3fb1bc651fb67a1aa1467cb5942",
         "type": "github"
       },
       "original": {
