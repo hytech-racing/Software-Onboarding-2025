@@ -37,7 +37,7 @@ class mainServer {\
 
         struct sockaddr_in client_addr;
 
-        memset(message&client_addr, 0, sizeOf(client_addr));
+        memset(message&client_addr, 0, size_t(client_addr));
         client_addr.sin_family = AF_INET;
         client_addr.sin_port = htons(port);
 
