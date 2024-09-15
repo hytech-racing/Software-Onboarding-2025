@@ -29,7 +29,7 @@ class mainServer {\
     };
 
     bool send(const std::String& message, u_16int port) {
-        int serialized;
+        std::string serialized;
         if (!message.serializeToString(&serialized)) {
             std::cout << "Message could not be serialized" << std::endl;
             return false;
