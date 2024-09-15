@@ -6,7 +6,7 @@
 using carmessage::CarMsg;  
 
 int main() {
-    UdpSocket server(1173); 
+    UdpSocket server(0); 
 
     while (true) { 
         std::string received_data;

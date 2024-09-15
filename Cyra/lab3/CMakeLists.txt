@@ -19,6 +19,9 @@ add_executable(client src/client.cpp)
 target_link_libraries(client PUBLIC message)
 target_link_libraries(client PUBLIC message udp_socket)
 
+add_executable(server src/server.cpp)
+target_link_libraries(server PUBLIC message udp_socket) 
+target_include_directories(server PUBLIC include)
 
 install(TARGETS client server
   RUNTIME DESTINATION bin
