@@ -1,0 +1,6 @@
+@PACKAGE_INIT@
+
+# Include the targets file
+include("${CMAKE_CURRENT_LIST_DIR}/lab3libTargets.cmake")
+
+check_required_components(lab3lib)
