@@ -16,9 +16,9 @@ int main() {
     std::getline(std::cin, client_message);
 
 
-    example::SimpleMessage message;
+    carmessage::CarMsg message;
     message.set_sender_name(client_name);  // Set the client's name
-    message.set_text(client_message);  // Set the client's message
+    message.set_message(client_message);  // Set the client's message
     std::string serialized_message = message.SerializeAsString();
   
 
@@ -34,9 +34,9 @@ int main() {
 
 
     // Deserialize the received message
-    example::SimpleMessage received_message;
+    carmessage::CarMsg received_message;
     if (received_message.ParseFromString(received_data)) {
-        std::cout << "Server message: " << received_message.text() << std::endl;
+        std::cout << "Server message: " << received_message.message() << std::endl;
     } else {
         std::cerr << "Failed to parse the message from the server." << std::endl;
     }

@@ -17,11 +17,11 @@ int main() {
         server.receiveMessage(received_data, sender_ip, sender_port);
         
      
-        SimpleMessage client_message;
+        CarMsg client_message;
         if (client_message.ParseFromString(received_data)) {
             std::cout << "Received message from " << client_message.sender_name() << " (" 
                       << sender_ip << ":" << sender_port << ") -> " 
-                      << client_message.text() << std::endl;
+                      << client_message.message() << std::endl;
         } else {
             std::cout << "Failed to parse the received message." << std::endl;
             continue;  
@@ -31,12 +31,11 @@ int main() {
         std::string server_response = "Acknowledged.";
 
 
-        SimpleMessage message;
+        CarMsg message;
         message.set_sender_name("Server");  
-        message.set_text(server_response);
+        message.set_message(server_response);
         std::string serialized_message = message.SerializeAsString();
 
-t
         server.sendMessage(serialized_message, sender_ip, sender_port);
     }
 
