@@ -41,7 +41,7 @@ class mainServer {\
         client_addr.sin_family = AF_INET;
         client_addr.sin_port = htons(port);
 
-        if (sendto(newSocket, serialized, serialized.size(), 0, (struct sockaddr *)&client_addr, sizeOf(client_addr)) < 0) {
+        if (sendto(newSocket, serialized, serialized.size(), 0, (struct sockaddr *)&client_addr, size_t(client_addr)) < 0) {
             std::cout << "Message could not be sent" << std::endl;
             return false;
         }
