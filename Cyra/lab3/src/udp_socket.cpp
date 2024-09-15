@@ -6,25 +6,40 @@
 #include <unistd.h>
 
 UdpSocket::UdpSocket(int port) : port(port) {
+    // Create the UDP socket
     socket_fd = socket(AF_INET, SOCK_DGRAM, 0);
     if (socket_fd < 0) {
         std::cerr << "Failed to create socket\n";
         exit(EXIT_FAILURE);
     }
 
-    struct sockaddr_in server_addr;
-    memset(&server_addr, 0, sizeof(server_addr));
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_addr.s_addr = INADDR_ANY;
-    server_addr.sin_port = htons(port);
-
-    if (bind(socket_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
-        std::cerr << "Failed to bind socket\n";
+    // Set socket options to allow reusing the port
+    int opt = 1;
+    if (setsockopt(socket_fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0) {
+        std::cerr << "Failed to set socket options\n";
+        close(socket_fd);
         exit(EXIT_FAILURE);
     }
+
+    // Prepare the server address structure
+    struct sockaddr_in server_addr;
+    memset(&server_addr, 0, sizeof(server_addr));
+    server_addr.sin_family = AF_INET;  // Use IPv4
+    server_addr.sin_addr.s_addr = INADDR_ANY;  // Bind to all available interfaces
+    server_addr.sin_port = htons(port);  // Convert port to network byte order
+
+    // Bind the socket to the specified port and address
+    if (bind(socket_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
+        std::cerr << "Failed to bind socket\n";
+        close(socket_fd);
+        exit(EXIT_FAILURE);
+    }
+
+    std::cout << "Socket successfully bound to port " << port << "\n";
 }
 
 UdpSocket::~UdpSocket() {
+    // Close the socket on destruction
     close(socket_fd);
 }
 
@@ -58,5 +73,3 @@ void UdpSocket::receiveMessage(std::string& message, std::string& sender_ip, int
         message = "";
     }
 }
-
-
