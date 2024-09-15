@@ -11,8 +11,8 @@ target_include_directories(lab3lib PUBLIC
 )
 
 include(GNUInstallDirs)
-install(TARGETS hellolib
-  EXPORT hellolibTargets
+install(TARGETS lab3lib
+  EXPORT lab3libTargets
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -23,7 +23,7 @@ install(TARGETS hellolib
 # you can have multiple targets under the same namespace
 install(EXPORT hlab3libTargets
   FILE lab3libTargets.cmake
-  NAMESPACE hellolib::  
+  NAMESPACE lab3lib::  
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/lab3lib
 )
 
@@ -32,11 +32,11 @@ install(EXPORT hlab3libTargets
 include(CMakePackageConfigHelpers)
 configure_package_config_file(${CMAKE_CURRENT_LIST_DIR}/cmake/lab3lib.cmake.in
   "${CMAKE_CURRENT_BINARY_DIR}/lab3libConfig.cmake"
-  INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/hellolib
+  INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/lab3lib
 )
 
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/hellolibConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/lab3libConfig.cmake"
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/lab3lib
 )
 
