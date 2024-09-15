@@ -16,7 +16,7 @@ class mainServer {\
      
         struct sockaddr_in server_addr;
 
-        memset((char *)&server_addr, 0, sizeof(server_addr));
+        memset((char *)&server_addr, 0, sizeOf(server_addr));
         server_addr.sin_family = AF_INET;
         server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
         server_addr.sin_port = htons(server_port);
@@ -54,7 +54,7 @@ class mainServer {\
 
         struct sockaddr_in clientAddr;
 
-        socklen_t addr_len = sizeOf(clientAddr);
+        socklen_t addr_len = size_t(clientAddr);
 
         int received = recvfrom(newSocket, buffer, 1024, 0, (struct sockaddr*)&clientAddr, &addr_len);
 
