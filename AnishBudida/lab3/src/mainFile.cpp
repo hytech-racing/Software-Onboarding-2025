@@ -2,7 +2,10 @@
 #include <iostream>
 #include <cstring>
 
-class mainServer {
+class mainServer {\
+
+    int newSocket;
+
     mainServer (const std::string& server_ip, u_16int server_port) {
         newSocket = socket(AF_INET, SOCK_DGRAM, 0);
 
