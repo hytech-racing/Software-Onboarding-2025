@@ -55,7 +55,7 @@ class mainServer {\
 
         socklen_t addr_len = sizeOf(clientAddr);
 
-        int received = recvfrom(newSocket, buffer, 1024, 0, server_ad(struct sockaddr*)&clientAddr, &addr_len);
+        int received = recvfrom(newSocket, buffer, 1024, 0, (struct sockaddr*)&clientAddr, &addr_len);
 
         if (received < 0) {
             std::cout << "Data was not received" << std::endl;
@@ -69,6 +69,6 @@ class mainServer {\
     }
 
     void close() {
-        newSocket.close();
+        (socket)newSocket.close();
     }
 }
