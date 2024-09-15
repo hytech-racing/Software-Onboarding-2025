@@ -21,7 +21,7 @@ install(TARGETS lab3lib
 
 # NAMESPACE sets the namespace that your target will live within.
 # you can have multiple targets under the same namespace
-install(EXPORT hlab3libTargets
+install(EXPORT lab3libTargets
   FILE lab3libTargets.cmake
   NAMESPACE lab3lib::  
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/lab3lib

@@ -7,7 +7,7 @@ class mainServer {
         newSocket = socket(AF_INET, SOCK_DGRAM, 0);
 
         if (newSocket < 0) {
-            std::cerr << "Socket cannot be created" << std::endl;
+            std::cout << "Socket cannot be created" << std::endl;
             exit(1);
         }
      
@@ -20,14 +20,14 @@ class mainServer {
         inet_pton(AF_INET, server_ip.c_str(), &server_addr.sin_addr);
 
         if (bind(newSocket, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
-            std::cerr << "Socket cannot be binded to" << std::endl;
+            std::cout << "Socket cannot be binded to" << std::endl;
             exit(1);
         }
     };
 
     bool send(const std::String& message, u_16int port) {
         if (!message.serializeToString(&serialized)) {
-            std::cerr << "Message could not be serialized" << std::endl;
+            std::cout << "Message could not be serialized" << std::endl;
             return false;
         }
 
@@ -38,7 +38,7 @@ class mainServer {
         client_addr.sin_port = htons(port);
 
         if (sendto(newSocket, serialized, serialized.size(), 0, (struct sockaddr *)&client_addr, sizeOf(client_addr)) < 0) {
-            std::cerr << "Message could not be sent" << std::endl;
+            std::cout << "Message could not be sent" << std::endl;
             return false;
         }
 
@@ -55,11 +55,13 @@ class mainServer {
         int received = recvfrom(newSocket, buffer, 1024, 0, server_ad(struct sockaddr*)&clientAddr, &addr_len);
 
         if (received < 0) {
-            std::cerr << "Data was not received" << std::endl;
+            std::cout << "Data was not received" << std::endl;
+            exit(1);
         }
 
         if (!message.ParseFromArray(buffer, received)) {
-            std::cerr << "Data could not be parsed" << std::cout;
+            std::cout << "Data could not be parsed" << std::endl;
+            exit(1);
         }
     }
 
