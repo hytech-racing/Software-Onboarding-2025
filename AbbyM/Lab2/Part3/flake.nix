@@ -1,5 +1,5 @@
 {
-    description = "lab 2 part 2 flake.nix";
+    description = "lab 2 part 3 flake.nix";
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
