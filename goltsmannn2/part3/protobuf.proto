@@ -1,0 +1,6 @@
+syntax = "proto3";
+package OnboardingLab3;
+
+message SimpleMessage {
+  optional string sender_name = 1;
+}
