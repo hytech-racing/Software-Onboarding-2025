@@ -1,3 +1,0 @@
-/home/dhruv/lab1/src/CMakeFiles/test.dir
-/home/dhruv/lab1/src/CMakeFiles/edit_cache.dir
-/home/dhruv/lab1/src/CMakeFiles/rebuild_cache.dir
