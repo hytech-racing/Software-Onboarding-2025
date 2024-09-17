@@ -1,5 +1,6 @@
 build/
 .DS_Store
+/.vscode
 ShangEn/build/*
 BenHall/lab1/build
 RishiB/build/*
@@ -7,9 +8,13 @@ mitchellcomer/.vscode/*
 mitchellcomer/result
 Ujaan/Lab-2/Part-1/build/*
 milesK/milesKlab1/build
+joel/lab2/part1/build
+joel/lab2/part2/build
+joel/lab2/part3/build
 JasonWang/Lab1/build
 JasonWang/Lab2/Part1/build
 JasonWang/Lab2/Part1/result
+
 DerekNgu/lab2/part1/build
 DerekNgu/lab2/part1/result
 DerekNgu/lab2/part2/collection/result
@@ -20,7 +25,12 @@ DerekNgu/lab2/part3/result
 /.vscode
 
 
+
+Jason/lab2/Part3/result
+
 BenHall/lab1/part1/build
 BenHall/lab1/part2/build
 BenHall/lab2/part1/result/
 BenHall/lab2/part1/result
+.idea/
+../cmake-build-debug/
