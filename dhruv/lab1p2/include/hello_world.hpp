@@ -1,3 +1,5 @@
+#ifndef HelloWorld
+#define HelloWorld
 #include <iostream>
 
 class HelloWorldLib
@@ -7,4 +9,6 @@ class HelloWorldLib
     void hello();   
 
 };
+
+#endif
 

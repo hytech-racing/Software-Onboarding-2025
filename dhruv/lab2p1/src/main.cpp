@@ -1,5 +1,5 @@
 #include <iostream>
-#include "hello_world.hpp"
+#include <hello_world.hpp>
 
 int main() {
     HelloWorldLib obj;
