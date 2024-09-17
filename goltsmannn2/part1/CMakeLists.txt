@@ -5,14 +5,17 @@ project(project
         LANGUAGES CXX)
 
 
-
-
+# Creates a binary file and compiles library
+# Not specifying type is deprecated.
 add_library(HelloWorldLibrary STATIC src/hello_world.cpp)
+
+
 target_include_directories(HelloWorldLibrary PUBLIC include)
 
 add_executable(hello_exec src/main.cpp)
 target_link_libraries(hello_exec PUBLIC HelloWorldLibrary)
 
+include(GNUInstallDirs)
 install(TARGETS hello_exec
-            RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX/CMAKE_INSTALL_BINDIR}
+        DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
