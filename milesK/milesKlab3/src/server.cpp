@@ -1,5 +1,5 @@
 #include "udp_socket.h"
-#include "message.pb.h"
+#include "info.pb.h"
 #include <iostream>
 #include <string>
 

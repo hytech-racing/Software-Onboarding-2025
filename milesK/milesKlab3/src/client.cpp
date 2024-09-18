@@ -1,7 +1,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <limits.h>
-#include "message.pb.h"
+#include "info.pb.h"
 
 #define UDP_PORT 1173
 #define REMOTE_ADDR_STR "127.0.0.1"
@@ -26,25 +26,25 @@ int main (void) {
     std::getline(std::cin, message);
 
     // serialize message into protobuf shit
-    info::generic_message message;
-    message.set_sender_name(name);
-    message.set_text(message);
-    std::string serialized_message = message.SerializeAsString();
+    info::generic_message gMsg;
+    gMsg.set_sender_name(name);
+    gMsg.set_text(message);
+    std::string serializedMsg = gMsg.SerializeAsString();
   
     // Send the message to the server
-    client.sendMessage(serialized_message, REMOTE_ADDR_STR, UDP_PORT);
+    client.sendMessage(serializedMsg, REMOTE_ADDR_STR, UDP_PORT);
 
-    std::string received_data;
-    std::string sender_ip;
+    std::string receivedData;
+    std::string senderIP;
     int sender_port;
 
     // Now pass the received data, sender_ip, and sender_port to the receiveMessage function
-    client.receiveMessage(received_data, sender_ip, sender_port);
+    client.receiveMessage(receivedData, senderIP, sender_port);
 
     // Deserialize the received message
-    example::SimpleMessage received_message;
-    if (received_message.ParseFromString(received_data)) {
-        std::cout << "Server message: " << received_message.text() << std::endl;
+    info::generic_message receivedMsg;
+    if (receivedMsg.ParseFromString(receivedData)) {
+        std::cout << "Server message: " << receivedMsg.text() << std::endl;
     } else {
         std::cerr << "Failed to parse the message from the server." << std::endl;
     }

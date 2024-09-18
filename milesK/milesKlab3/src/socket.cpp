@@ -49,11 +49,11 @@ void Socket::sendMsg (std::string& message, std::string& remoteIP, int& port) {
     }
 }
 
-void Socket::getMsg (std::string& message, std::string& remoteIP, int& port) const {
+void Socket::getMsg (std::string& message, std::string& remoteIP, int& port) {
     struct sockaddr_in localAddr;
     struct sockaddr_in remoteAddr;
     socklen_t addrlen = sizeof(remoteAddr);
-    unsigned char buf[BUFFERSIZE] = "";
+    char buf[BUFFERSIZE] = "";
 
 
     // bind the socket to any valid IP address and a specific port
@@ -62,9 +62,9 @@ void Socket::getMsg (std::string& message, std::string& remoteIP, int& port) con
     localAddr.sin_addr.s_addr = htonl(INADDR_ANY);
     localAddr.sin_port = htons(port);
 
-    if (bind(this->fd, (struct sockaddr*)&localAddr, sizeof(localAddr)) < 0 {
+    if (bind(this->fd, (struct sockaddr*)&localAddr, sizeof(localAddr)) < 0) {
         perror("bind failed");
-        return "";
+        return;
     }
 
     // Get the msg 
@@ -72,12 +72,12 @@ void Socket::getMsg (std::string& message, std::string& remoteIP, int& port) con
     if (recvlen > 0) {
         buf[recvlen] = '\0';
         message = std::string(buf);
-        char client_ip[INET_ADDRSTRLEN];
-        inet_ntop(AF_INET, &(client_addr.sin_addr), client_ip, INET_ADDRSTRLEN);
-        sender_ip = std::string(client_ip);
-        port = ntohs(client_addr.sin_port);
+        char localIP[INET_ADDRSTRLEN];
+        inet_ntop(AF_INET, &(localAddr.sin_addr), localIP, INET_ADDRSTRLEN);
+        remoteIP = std::string(localIP);
+        port = ntohs(localAddr.sin_port);
     }
     else {
-        message = "";
+        message.clear();
     }
 }

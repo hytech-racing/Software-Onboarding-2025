@@ -20,6 +20,6 @@ public:
     ~Socket();
     void sendMsg (std::string& message, std::string& remoteIP, int& port);
     void getMsg (std::string& message, std::string& remoteIP, int& port);
-}
-
+};
 #endif
+
