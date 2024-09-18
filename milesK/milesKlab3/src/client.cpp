@@ -1,12 +1,15 @@
 #include <iostream>
 #include <unistd.h>
 #include <limits.h>
-#include "info.pb.h"
+#include "../include/info.pb.h" // TODO
+#include "../include/socket.hpp" // TODO
 
 #define UDP_PORT 1173
-#define REMOTE_ADDR_STR "127.0.0.1"
+
 
 int main (void) {
+    const std::string REMOTE_ADDR_STR = "127.0.0.1";
+
     // assigning the port to 0 here indicates that
     // we are delegating the assignment of the port
     // to the OS probably; the port will be assigned
@@ -18,7 +21,7 @@ int main (void) {
     char username[LOGIN_NAME_MAX];
     gethostname(hostname, HOST_NAME_MAX);
     getlogin_r(username, LOGIN_NAME_MAX);
-    std::string name = std::string(username << "@" << hostname);
+    std::string name = std::string(username) << "@" << std::string(hostname);
 
     // get message
     std::string message;
@@ -32,14 +35,14 @@ int main (void) {
     std::string serializedMsg = gMsg.SerializeAsString();
   
     // Send the message to the server
-    client.sendMessage(serializedMsg, REMOTE_ADDR_STR, UDP_PORT);
+    client.sendMsg(serializedMsg, REMOTE_ADDR_STR, UDP_PORT);
 
     std::string receivedData;
     std::string senderIP;
     int sender_port;
 
     // Now pass the received data, sender_ip, and sender_port to the receiveMessage function
-    client.receiveMessage(receivedData, senderIP, sender_port);
+    client.getMsg(receivedData, senderIP, sender_port);
 
     // Deserialize the received message
     info::generic_message receivedMsg;

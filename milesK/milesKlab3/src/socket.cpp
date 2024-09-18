@@ -34,7 +34,7 @@ Socket::~Socket() {
     close(fd);
 }
 
-void Socket::sendMsg (std::string& message, std::string& remoteIP, int& port) {
+void Socket::sendMsg (std::string message, std::string remoteIP, int port) {
     struct sockaddr_in remoteAddr;
     // Populate remoteAddr
     memset((char*)&remoteAddr, 0, sizeof(remoteAddr));
