@@ -2,6 +2,6 @@
 
 int main()
 {
-    HelloLib hello;
+    HelloWorldLib hello;
     hello.hello();
 }
