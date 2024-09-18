@@ -6,7 +6,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <socket.hpp>
+#include "../include/socket.hpp" // temp fix so that it will build
 
 #define BUFFERSIZE 2048
 
