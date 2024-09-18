@@ -8,7 +8,7 @@ int main() {
 
     client.send(message, 0);
 
-    while(!(client.receive(message, 0)));
+    while(!(client.receive(message)));
 
     std::cout << "Message received: " << message << std::endl;
 

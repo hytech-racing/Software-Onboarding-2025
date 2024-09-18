@@ -204,9 +204,26 @@ class data final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSenderNameFieldNumber = 1,
+    kTextFieldNumber = 1,
+    kSenderNameFieldNumber = 2,
   };
-  // string sender_name = 1;
+  // string text = 1;
+  void clear_text() ;
+  const std::string& text() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_text(Arg_&& arg, Args_... args);
+  std::string* mutable_text();
+  PROTOBUF_NODISCARD std::string* release_text();
+  void set_allocated_text(std::string* value);
+
+  private:
+  const std::string& _internal_text() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_text(
+      const std::string& value);
+  std::string* _internal_mutable_text();
+
+  public:
+  // string sender_name = 2;
   void clear_sender_name() ;
   const std::string& sender_name() const;
   template <typename Arg_ = const std::string&, typename... Args_>
@@ -228,8 +245,8 @@ class data final :
 
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 0,
-      32, 2>
+      1, 2, 0,
+      36, 2>
       _table_;
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -245,6 +262,7 @@ class data final :
                               ::google::protobuf::Arena* arena);
         inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                               ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr text_;
     ::google::protobuf::internal::ArenaStringPtr sender_name_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -269,7 +287,60 @@ class data final :
 
 // data
 
-// string sender_name = 1;
+// string text = 1;
+inline void data::clear_text() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.text_.ClearToEmpty();
+}
+inline const std::string& data::text() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:example.data.text)
+  return _internal_text();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void data::set_text(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.text_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:example.data.text)
+}
+inline std::string* data::mutable_text() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_text();
+  // @@protoc_insertion_point(field_mutable:example.data.text)
+  return _s;
+}
+inline const std::string& data::_internal_text() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.text_.Get();
+}
+inline void data::_internal_set_text(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.text_.Set(value, GetArena());
+}
+inline std::string* data::_internal_mutable_text() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.text_.Mutable( GetArena());
+}
+inline std::string* data::release_text() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:example.data.text)
+  return _impl_.text_.Release();
+}
+inline void data::set_allocated_text(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.text_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.text_.IsDefault()) {
+          _impl_.text_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:example.data.text)
+}
+
+// string sender_name = 2;
 inline void data::clear_sender_name() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_.sender_name_.ClearToEmpty();

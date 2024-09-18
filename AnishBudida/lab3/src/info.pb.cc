@@ -24,7 +24,10 @@ namespace example {
 
 inline constexpr data::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : sender_name_(
+      : text_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        sender_name_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
@@ -58,6 +61,7 @@ const ::uint32_t TableStruct_info_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
     ~0u,  // no _inlined_string_donated_
     ~0u,  // no _split_
     ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::example::data, _impl_.text_),
     PROTOBUF_FIELD_OFFSET(::example::data, _impl_.sender_name_),
 };
 
@@ -70,14 +74,14 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::example::_data_default_instance_._instance,
 };
 const char descriptor_table_protodef_info_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-    "\n\ninfo.proto\022\007example\"\033\n\004data\022\023\n\013sender_"
-    "name\030\001 \001(\tb\006proto3"
+    "\n\ninfo.proto\022\007example\")\n\004data\022\014\n\004text\030\001 "
+    "\001(\t\022\023\n\013sender_name\030\002 \001(\tb\006proto3"
 };
 static ::absl::once_flag descriptor_table_info_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_info_2eproto = {
     false,
     false,
-    58,
+    72,
     descriptor_table_protodef_info_2eproto,
     "info.proto",
     &descriptor_table_info_2eproto_once,
@@ -124,7 +128,8 @@ data::data(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE data::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
-      : sender_name_(arena, from.sender_name_),
+      : text_(arena, from.text_),
+        sender_name_(arena, from.sender_name_),
         _cached_size_{0} {}
 
 data::data(
@@ -142,7 +147,8 @@ data::data(
 inline PROTOBUF_NDEBUG_INLINE data::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : sender_name_(arena),
+      : text_(arena),
+        sender_name_(arena),
         _cached_size_{0} {}
 
 inline void data::SharedCtor(::_pb::Arena* arena) {
@@ -155,6 +161,7 @@ data::~data() {
 }
 inline void data::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.text_.Destroy();
   _impl_.sender_name_.Destroy();
   _impl_.~Impl_();
 }
@@ -166,6 +173,7 @@ PROTOBUF_NOINLINE void data::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.text_.ClearToEmpty();
   _impl_.sender_name_.ClearToEmpty();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -178,34 +186,41 @@ const char* data::_InternalParse(
 
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 0, 32, 2> data::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 36, 2> data::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
+    2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
+    4294967292,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
+    2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     &_data_default_instance_._instance,
     ::_pbi::TcParser::GenericFallback,  // fallback
   }, {{
-    // string sender_name = 1;
+    // string sender_name = 2;
     {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(data, _impl_.sender_name_)}},
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(data, _impl_.sender_name_)}},
+    // string text = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(data, _impl_.text_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // string sender_name = 1;
+    // string text = 1;
+    {PROTOBUF_FIELD_OFFSET(data, _impl_.text_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string sender_name = 2;
     {PROTOBUF_FIELD_OFFSET(data, _impl_.sender_name_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\14\13\0\0\0\0\0\0"
+    "\14\4\13\0\0\0\0\0"
     "example.data"
+    "text"
     "sender_name"
   }},
 };
@@ -217,12 +232,20 @@ const ::_pbi::TcParseTable<0, 1, 0, 32, 2> data::_table_ = {
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
-  // string sender_name = 1;
+  // string text = 1;
+  if (!this->_internal_text().empty()) {
+    const std::string& _s = this->_internal_text();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "example.data.text");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
+  }
+
+  // string sender_name = 2;
   if (!this->_internal_sender_name().empty()) {
     const std::string& _s = this->_internal_sender_name();
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
         _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "example.data.sender_name");
-    target = stream->WriteStringMaybeAliased(1, _s, target);
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -242,7 +265,13 @@ const ::_pbi::TcParseTable<0, 1, 0, 32, 2> data::_table_ = {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string sender_name = 1;
+  // string text = 1;
+  if (!this->_internal_text().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_text());
+  }
+
+  // string sender_name = 2;
   if (!this->_internal_sender_name().empty()) {
     total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_sender_name());
@@ -267,6 +296,9 @@ void data::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protob
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_text().empty()) {
+    _this->_internal_set_text(from._internal_text());
+  }
   if (!from._internal_sender_name().empty()) {
     _this->_internal_set_sender_name(from._internal_sender_name());
   }
@@ -292,6 +324,7 @@ void data::InternalSwap(data* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.text_, &other->_impl_.text_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.sender_name_, &other->_impl_.sender_name_, arena);
 }
 
