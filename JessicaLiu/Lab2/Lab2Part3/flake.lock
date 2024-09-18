@@ -6,11 +6,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1726437344,
-        "narHash": "sha256-jdGqYmLlVZKybw09O/oeSw8q+6RfZpFN8asFTmQ0t/Q=",
+        "lastModified": 1726440970,
+        "narHash": "sha256-+NAZQ6EBHL8pYZKmIac152DfwMI8A2HFi7sZ+S1w3b0=",
         "owner": "jessicaliu06",
         "repo": "hytech_software_onboarding",
-        "rev": "81a1ea32940f7a7817cbc9769e78ec597c31ddac",
+        "rev": "a78ba3296f9d09b7acf96a4b6e9295ddd3a1d58c",
         "type": "github"
       },
       "original": {
