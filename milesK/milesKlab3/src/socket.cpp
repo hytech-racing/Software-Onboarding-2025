@@ -6,6 +6,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <socket.hpp>
 
 #define BUFFERSIZE 2048
 
