@@ -3,10 +3,9 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs";
-        utils.url = "github:numtide/flake-utils";
     };
 
-    outputs = { self, nixpkgs, utils }:
+    outputs = { self, nixpkgs }:
         let
             helloworld_overlay = final: prev: rec {
                 helloworld_lib = final.callPackage ./hellolib.nix { };
