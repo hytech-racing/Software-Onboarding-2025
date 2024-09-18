@@ -1,10 +1,10 @@
 #include <iostream>
+#include <string>
 #include <cstring>
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
 
 #define BUFFERSIZE 2048
@@ -38,22 +38,22 @@ public:
         close(fd);
     }
 
-    int sendMsg (char* message, char* remoteIP, int port) const {
+    void sendMsg (std::string& message, std::string& remoteIP, int& port) {
 		struct sockaddr_in remoteAddr;
         // Populate remoteAddr
 		memset((char*)&remoteAddr, 0, sizeof(remoteAddr));
 		remoteAddr.sin_family = AF_INET;
 		remoteAddr.sin_port = htons(port);
-		inet_pton(AF_INET, remoteIP, &remoteAddr.sin_addr);
+		inet_pton(AF_INET, remoteIP.c_str(), &remoteAddr.sin_addr);
 
         // Send msg
-		if (sendto(this->fd, message, strlen(message), 0, (struct sockaddr*)&remoteAddr, sizeof(remoteAddr)) < 0) {
+		if (sendto(this->fd, message.c_str(), message.length(), 0, (struct sockaddr*)&remoteAddr, sizeof(remoteAddr)) < 0) {
 			std::cerr << "sendto failed" << std::endl;
-			return 0;
+			return;
 		}
     }
 
-    char* getMsg (char* remoteIP, int port) const {
+    void getMsg (std::string& message, std::string& remoteIP, int& port) const {
         struct sockaddr_in localAddr;
         struct sockaddr_in remoteAddr;
         socklen_t addrlen = sizeof(remoteAddr);
@@ -73,7 +73,12 @@ public:
 
         // Get the msg 
         int recvlen = recvfrom(this->fd, buf, BUFFERSIZE, 0, (struct sockaddr*)&remoteAddr, &addrlen);
-        if (recvlen > 0) buf[recvlen] = '\0';
-        return buf;
+        if (recvlen > 0) {
+            buf[recvlen] = '\0';
+            message = std::string(buf);
+        }
+        else {
+            message = "";
+        }
     }
 }
