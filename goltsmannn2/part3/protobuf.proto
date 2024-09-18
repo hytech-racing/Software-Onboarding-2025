@@ -3,4 +3,6 @@ package OnboardingLab3;
 
 message SimpleMessage {
   optional string sender_name = 1;
+  optional string sender_message = 2;
 }
+

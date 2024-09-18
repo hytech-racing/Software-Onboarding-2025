@@ -3,4 +3,8 @@ build/
 ShangEn/build/*
 BenHall/lab1/build
 RishiB/build/*
-
+.idea/
+hellolib/
+lab2part3/
+goltsmannn2/part2/result
+goltsmannn2/.idea
