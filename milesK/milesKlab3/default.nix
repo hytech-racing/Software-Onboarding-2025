@@ -6,4 +6,7 @@ stdenv.mkDerivation rec {
   src = ./.;
   nativeBuildInputs = [ cmake ];
   buildInputs = [ protobuf ];
+  cmakeFlags = [
+    "-DCMAKE_BUILD_TYPE=Release"
+  ];
 }
