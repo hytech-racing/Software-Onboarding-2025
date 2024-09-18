@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.10)
+project(lab3)
+find_package(Protobuf REQUIRED)
+
+add_library(socket src/socket.cpp)
+add_executable(server src/server.cpp proto/message.pb.cc)
+target_link_libraries(server PRIVATE socket protobuf::libprotobuf)
+add_executable(client src/client.cpp proto/message.pb.cc)
+target_link_libraries(client PRIVATE socket protobuf::libprotobuf)
+target_include_directories(server PRIVATE proto/)
+target_include_directories(client PRIVATE proto/)
+install(TARGETS server client DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
