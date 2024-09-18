@@ -19,25 +19,28 @@ int main() {
         // Deserialize the received message
         info::generic_message client_message;
         if (client_message.ParseFromString(received_data)) {
-            std::cout << "Received message from " << client_message.authorname() << " (" 
+            if (received_data.length() > 0) {
+                std::cout << "Received message from " << client_message.authorname() << " (IP: " 
                       << sender_ip << ":" << sender_port << ") -> " 
                       << client_message.contents() << std::endl;
+
+                // Allow input of the server's response message
+                std::string server_response = "Acknowledged.";
+
+                // Prepare a response
+                info::generic_message message;
+                message.set_authorname("Server");  // Server's name
+                message.set_contents(server_response);
+                std::string serialized_message = message.SerializeAsString();
+
+                // Send the response back to the client
+                server.sendMsg(serialized_message, sender_ip, sender_port);
+            }
         } else {
             std::cout << "Failed to parse the received message." << std::endl;
             continue;  // Skip to the next iteration of the loop
         }
 
-        // Allow input of the server's response message
-        std::string server_response = "Acknowledged.";
-
-        // Prepare a response
-        info::generic_message message;
-        message.set_authorname("Server");  // Server's name
-        message.set_contents(server_response);
-        std::string serialized_message = message.SerializeAsString();
-
-        // Send the response back to the client
-        server.sendMsg(serialized_message, sender_ip, sender_port);
     }
 
     return 0;

@@ -63,7 +63,7 @@ void Socket::getMsg (std::string& message, std::string& remoteIP, int& port) {
     localAddr.sin_port = htons(port);
 
     if (bind(this->fd, (struct sockaddr*)&localAddr, sizeof(localAddr)) < 0) {
-        perror("bind failed");
+        std::cerr << "bind() failed in getMsg()" << std::endl;
         return;
     }
 
