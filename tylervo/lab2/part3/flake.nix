@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    hellolib.url = "github:tylerdvo/hellolib";
+    hellolib.url = "github:tylerdvo/tylerhellolib";
   };
 
   outputs = { self, nixpkgs, hellolib }:
