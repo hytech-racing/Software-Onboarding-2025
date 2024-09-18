@@ -1,7 +1,9 @@
-#include "udp_socket.h"
-#include "info.pb.h"
+#include "../include/socket.hpp" // TODO
+#include "../include/info.pb.h" // TODO
 #include <iostream>
 #include <string>
+
+#define UDP_PORT 1173
 
 int main() {
     Socket server(1173);  // Create a UDP socket on port 8080
@@ -17,9 +19,9 @@ int main() {
         // Deserialize the received message
         info::generic_message client_message;
         if (client_message.ParseFromString(received_data)) {
-            std::cout << "Received message from " << client_message.sender_name() << " (" 
+            std::cout << "Received message from " << client_message.authorname() << " (" 
                       << sender_ip << ":" << sender_port << ") -> " 
-                      << client_message.text() << std::endl;
+                      << client_message.contents() << std::endl;
         } else {
             std::cout << "Failed to parse the received message." << std::endl;
             continue;  // Skip to the next iteration of the loop
@@ -30,8 +32,8 @@ int main() {
 
         // Prepare a response
         info::generic_message message;
-        message.set_sender_name("Server");  // Server's name
-        message.set_text(server_response);
+        message.set_authorname("Server");  // Server's name
+        message.set_contents(server_response);
         std::string serialized_message = message.SerializeAsString();
 
         // Send the response back to the client

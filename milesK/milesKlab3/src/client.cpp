@@ -21,7 +21,7 @@ int main (void) {
     char username[LOGIN_NAME_MAX];
     gethostname(hostname, HOST_NAME_MAX);
     getlogin_r(username, LOGIN_NAME_MAX);
-    std::string name = std::string(username) << "@" << std::string(hostname);
+    std::string name = std::string(username) + "@" + std::string(hostname);
 
     // get message
     std::string message;
@@ -30,8 +30,8 @@ int main (void) {
 
     // serialize message into protobuf shit
     info::generic_message gMsg;
-    gMsg.set_sender_name(name);
-    gMsg.set_text(message);
+    gMsg.set_authorname(name);
+    gMsg.set_contents(message);
     std::string serializedMsg = gMsg.SerializeAsString();
   
     // Send the message to the server
@@ -39,15 +39,15 @@ int main (void) {
 
     std::string receivedData;
     std::string senderIP;
-    int sender_port;
+    int senderPort;
 
     // Now pass the received data, sender_ip, and sender_port to the receiveMessage function
-    client.getMsg(receivedData, senderIP, sender_port);
+    client.getMsg(receivedData, senderIP, senderPort);
 
     // Deserialize the received message
     info::generic_message receivedMsg;
     if (receivedMsg.ParseFromString(receivedData)) {
-        std::cout << "Server message: " << receivedMsg.text() << std::endl;
+        std::cout << "Server message: " << receivedMsg.contents() << std::endl;
     } else {
         std::cerr << "Failed to parse the message from the server." << std::endl;
     }
