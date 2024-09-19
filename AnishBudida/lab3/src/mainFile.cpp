@@ -42,6 +42,7 @@ bool mainServer::send(info::data message, int port) {
     client_addr.sin_family = AF_INET;
     client_addr.sin_port = htons(port);
 
+
     if (sendto(newSocket, serialized.data(), serialized.size(), 0, (struct sockaddr *)&client_addr, sizeof(client_addr)) < 0) {
         std::cout << "Message could not be sent" << std::endl;
         return false;
@@ -69,6 +70,9 @@ bool mainServer::receive(info::data message)
         std::cout << "Data could not be parsed" << std::endl;
         return false;
     }
+
+    std::cout << "Data received" << std::endl;
+
     return true;
 }
 
