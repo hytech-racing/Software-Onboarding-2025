@@ -19,6 +19,10 @@
     {
         overlays.default = nixpkgs.lib.composeManyExtensions overlays;
         packages.${system}.default = pkgs.defaultPackage;
-
+        legacyPackages.${system} =
+            import nixpkgs {
+              inherit system;
+              inherit overlays;
+            };
     };
 }
