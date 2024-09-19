@@ -55,17 +55,17 @@ struct TableStruct_info_2eproto {
 };
 extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_info_2eproto;
-namespace example {
+namespace info {
 class data;
 struct dataDefaultTypeInternal;
 extern dataDefaultTypeInternal _data_default_instance_;
-}  // namespace example
+}  // namespace info
 namespace google {
 namespace protobuf {
 }  // namespace protobuf
 }  // namespace google
 
-namespace example {
+namespace info {
 
 // ===================================================================
 
@@ -73,7 +73,7 @@ namespace example {
 // -------------------------------------------------------------------
 
 class data final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:example.data) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:info.data) */ {
  public:
   inline data() : data(nullptr) {}
   ~data() override;
@@ -187,7 +187,7 @@ class data final :
   private:
   friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
-    return "example.data";
+    return "info.data";
   }
   protected:
   explicit data(::google::protobuf::Arena* arena);
@@ -239,14 +239,14 @@ class data final :
   std::string* _internal_mutable_sender_name();
 
   public:
-  // @@protoc_insertion_point(class_scope:example.data)
+  // @@protoc_insertion_point(class_scope:info.data)
  private:
   class _Internal;
 
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
-      36, 2>
+      33, 2>
       _table_;
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -294,7 +294,7 @@ inline void data::clear_text() {
 }
 inline const std::string& data::text() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:example.data.text)
+  // @@protoc_insertion_point(field_get:info.data.text)
   return _internal_text();
 }
 template <typename Arg_, typename... Args_>
@@ -303,11 +303,11 @@ inline PROTOBUF_ALWAYS_INLINE void data::set_text(Arg_&& arg,
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   ;
   _impl_.text_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:example.data.text)
+  // @@protoc_insertion_point(field_set:info.data.text)
 }
 inline std::string* data::mutable_text() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   std::string* _s = _internal_mutable_text();
-  // @@protoc_insertion_point(field_mutable:example.data.text)
+  // @@protoc_insertion_point(field_mutable:info.data.text)
   return _s;
 }
 inline const std::string& data::_internal_text() const {
@@ -326,7 +326,7 @@ inline std::string* data::_internal_mutable_text() {
 }
 inline std::string* data::release_text() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  // @@protoc_insertion_point(field_release:example.data.text)
+  // @@protoc_insertion_point(field_release:info.data.text)
   return _impl_.text_.Release();
 }
 inline void data::set_allocated_text(std::string* value) {
@@ -337,7 +337,7 @@ inline void data::set_allocated_text(std::string* value) {
           _impl_.text_.Set("", GetArena());
         }
   #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:example.data.text)
+  // @@protoc_insertion_point(field_set_allocated:info.data.text)
 }
 
 // string sender_name = 2;
@@ -347,7 +347,7 @@ inline void data::clear_sender_name() {
 }
 inline const std::string& data::sender_name() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:example.data.sender_name)
+  // @@protoc_insertion_point(field_get:info.data.sender_name)
   return _internal_sender_name();
 }
 template <typename Arg_, typename... Args_>
@@ -356,11 +356,11 @@ inline PROTOBUF_ALWAYS_INLINE void data::set_sender_name(Arg_&& arg,
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   ;
   _impl_.sender_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:example.data.sender_name)
+  // @@protoc_insertion_point(field_set:info.data.sender_name)
 }
 inline std::string* data::mutable_sender_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   std::string* _s = _internal_mutable_sender_name();
-  // @@protoc_insertion_point(field_mutable:example.data.sender_name)
+  // @@protoc_insertion_point(field_mutable:info.data.sender_name)
   return _s;
 }
 inline const std::string& data::_internal_sender_name() const {
@@ -379,7 +379,7 @@ inline std::string* data::_internal_mutable_sender_name() {
 }
 inline std::string* data::release_sender_name() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  // @@protoc_insertion_point(field_release:example.data.sender_name)
+  // @@protoc_insertion_point(field_release:info.data.sender_name)
   return _impl_.sender_name_.Release();
 }
 inline void data::set_allocated_sender_name(std::string* value) {
@@ -390,7 +390,7 @@ inline void data::set_allocated_sender_name(std::string* value) {
           _impl_.sender_name_.Set("", GetArena());
         }
   #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:example.data.sender_name)
+  // @@protoc_insertion_point(field_set_allocated:info.data.sender_name)
 }
 
 #ifdef __GNUC__
@@ -398,7 +398,7 @@ inline void data::set_allocated_sender_name(std::string* value) {
 #endif  // __GNUC__
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace example
+}  // namespace info
 
 
 // @@protoc_insertion_point(global_scope)

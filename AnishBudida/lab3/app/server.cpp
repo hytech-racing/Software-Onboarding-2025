@@ -7,7 +7,8 @@ int main() {
     while (true) {
         info::data message;
         if (mainServer.receive(message)) {
-            std::cout << "The message received: " << message << std::endl;
+            std::cout << "The message received: " << message.text() << std::endl;
+            message.set_text("helloBack");
             message.set_sender_name("newServer");
             mainServer.send(message, 8080);
         }

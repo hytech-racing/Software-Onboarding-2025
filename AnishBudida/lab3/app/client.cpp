@@ -6,11 +6,14 @@ int main() {
 
     info::data message;
 
+    message.set_text("hello to the racing world");
+    message.set_sender_name("client");
+
     client.send(message, 0);
 
     while(!(client.receive(message)));
 
-    std::cout << "Message received: " << message << std::endl;
+    std::cout << "Message received: " << message.text() << std::endl;
 
     client.close();   
 }

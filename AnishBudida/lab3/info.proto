@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package example;
+package info;
 
 // Define a simple message with a single string field
 message data {
