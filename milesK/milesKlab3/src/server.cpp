@@ -3,10 +3,10 @@
 #include <iostream>
 #include <string>
 
-#define UDP_PORT 1173
+#define UDP_PORT 10024
 
 int main() {
-    Socket server(1173);  // Create a UDP socket on port 8080
+    Socket server(1173, true);  // Create a UDP socket on port 8080
 
     while (true) {  // Infinite loop to keep the server running
         std::string received_data;

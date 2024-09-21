@@ -4,7 +4,7 @@
 #include "../include/info.pb.h" // TODO
 #include "../include/socket.hpp" // TODO
 
-#define UDP_PORT 1173
+#define UDP_PORT 10024
 
 
 int main (void) {
@@ -24,9 +24,7 @@ int main (void) {
     std::string name = std::string(username) + "@" + std::string(hostname);
 
     // get message
-    std::string message;
-    std::cout << "MESSAGE:\n";
-    std::getline(std::cin, message);
+    std::string message = "fuc";
 
     // serialize message into protobuf shit
     info::generic_message gMsg;

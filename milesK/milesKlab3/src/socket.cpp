@@ -6,11 +6,14 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "../include/socket.hpp" // temp fix so that it will build
+#include "../include/socket.hpp" // TODO temp fix so that it will build
 
 #define BUFFERSIZE 2048
 
 Socket::Socket (int port) {
+    Socket (port, false);
+}
+Socket::Socket (int port, bool isServer) {
     this->port = port;
     this->fd = socket(AF_INET, SOCK_DGRAM, 0);
 
@@ -24,7 +27,7 @@ Socket::Socket (int port) {
     server_addr.sin_addr.s_addr = INADDR_ANY;
     server_addr.sin_port = htons(port);
 
-    if (bind(fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
+    if (isServer && bind(fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
         std::cerr << "Failed to bind socket\n";
         return;
     }
@@ -55,17 +58,6 @@ void Socket::getMsg (std::string& message, std::string& remoteIP, int& port) {
     socklen_t addrlen = sizeof(remoteAddr);
     char buf[BUFFERSIZE] = "";
 
-
-    // bind the socket to any valid IP address and a specific port
-    memset((char*)&localAddr, 0, sizeof(localAddr));
-    localAddr.sin_family = AF_INET;
-    localAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-    localAddr.sin_port = htons(port);
-
-    if (bind(this->fd, (struct sockaddr*)&localAddr, sizeof(localAddr)) < 0) {
-        std::cerr << "bind() failed in getMsg()" << std::endl;
-        return;
-    }
 
     // Get the msg 
     int recvlen = recvfrom(this->fd, buf, BUFFERSIZE, 0, (struct sockaddr*)&remoteAddr, &addrlen);

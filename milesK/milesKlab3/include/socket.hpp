@@ -17,6 +17,7 @@ class Socket {
 
 public:
     Socket (int port);
+    Socket (int port, bool);
     ~Socket();
     void sendMsg (std::string message, std::string remoteIP, int port);
     void getMsg (std::string& message, std::string& remoteIP, int& port);
