@@ -2,7 +2,7 @@
 #include "mainFile.hpp"
 
 int main() {
-    mainServer mainServer("127.0.0.1", 13337);
+    mainServer mainServer("127.0.0.1", 1337);
 
     while (true) {
         info::data message;

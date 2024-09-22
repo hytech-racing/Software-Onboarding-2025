@@ -18,7 +18,6 @@ mainServer::mainServer (const std::string server_ip, int server_port) {
 
     if (bind(newSocket, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
         std::cout << "Socket cannot be binded to" << std::endl;
-        exit(1);
     }
 };
 

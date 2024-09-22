@@ -2,7 +2,7 @@
 #include "mainFile.hpp"
 
 int main() {
-    mainServer client("127.0.0.1", 13337);
+    mainServer client("127.0.0.1", 1337);
 
     info::data message;
 
