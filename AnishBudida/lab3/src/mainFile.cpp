@@ -15,10 +15,6 @@ mainServer::mainServer (const std::string server_ip, int server_port) {
     server_addr.sin_family = AF_INET;
     inet_pton(AF_INET, server_ip.c_str(), &server_addr.sin_addr);
     server_addr.sin_port = htons(server_port);
-
-    if (bind(newSocket, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
-        std::cout << "Socket cannot be binded to" << std::endl;
-    }
 };
 
 bool mainServer::send(info::data message, int backToServer) {
@@ -46,8 +42,10 @@ bool mainServer::send(info::data message, int backToServer) {
     return true;
 }
 
-bool mainServer::receive(info::data message)
+info::data mainServer::receive()
 {
+    info::data message;
+    
     char buffer[1024];
 
     socklen_t addr_len = sizeof(rem_addr);
@@ -56,17 +54,23 @@ bool mainServer::receive(info::data message)
 
     if (received < 0) {
         std::cout << "Data was not received" << std::endl;
-        return false;
+        exit(1);
     }
 
     if (!message.ParseFromArray(buffer, received)) {
         std::cout << "Data could not be parsed" << std::endl;
-        return false;
+        exit(1);
     }
 
     std::cout << "Data received" << std::endl;
 
-    return true;
+    return message;
+}
+
+void mainServer::bind() {
+    if (::bind(newSocket, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
+        std::cout << "Socket cannot be binded to" << std::endl;
+    }
 }
 
 void mainServer::close() {

@@ -2,7 +2,7 @@
 #include "mainFile.hpp"
 
 int main() {
-    mainServer client("127.0.0.1", 1337);
+    mainServer client("127.0.0.1", 1338);
 
     info::data message;
 
@@ -11,9 +11,10 @@ int main() {
 
     client.send(message, 0);
 
-    while(!(client.receive(message)));
-
-    std::cout << "Message received: " << message.text() << std::endl;
+    while(true) {
+        message = client.receive();
+        std::cout << "Message received from " << message.sender_name() << ": " << message.text() << std::endl;
+    }
 
     client.close();   
 }
