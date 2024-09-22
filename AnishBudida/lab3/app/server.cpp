@@ -2,7 +2,7 @@
 #include "mainFile.hpp"
 
 int main() {
-    mainServer mainServer("127.0.0.1", 1337);
+    mainServer mainServer("127.0.0.1", 13337);
 
     while (true) {
         info::data message;
@@ -10,7 +10,7 @@ int main() {
             std::cout << "The message received: " << message.text() << std::endl;
             message.set_text("helloBack");
             message.set_sender_name("newServer");
-            mainServer.send(message, 1338);
+            mainServer.send(message, 1);
         }
     }
 

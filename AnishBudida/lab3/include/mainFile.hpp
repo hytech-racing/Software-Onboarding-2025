@@ -11,8 +11,10 @@
 
 class mainServer {
     public:
+        int newSocket;
+        struct sockaddr_in server_addr, rem_addr;
         mainServer(const std::string server_ip, int port);
-        bool send(info::data message, int port);
+        bool send(info::data message, int backToServer);
         bool receive(info::data message);
         void close();
 };
