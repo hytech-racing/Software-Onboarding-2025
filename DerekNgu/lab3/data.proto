@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package data;
+
+// Define a simple message with a single string field
+message info {
+  string sender_name = 1;
+}
