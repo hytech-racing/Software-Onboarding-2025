@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15...3.30)
-project(Lab1Pt2 VERSION 1.0
+project(Lab2Pt1 VERSION 1.0
                 DESCRIPTION "Part 2 of lab 1"
                 LANGUAGES CXX)
 
@@ -11,3 +11,6 @@ target_include_directories(HelloWorldLibrary PUBLIC include)
 
 # We link the dependencies together
 target_link_libraries(HelloWorldProgram HelloWorldLibrary)
+
+# Provide installation path
+install(TARGETS HelloWorldProgram DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
