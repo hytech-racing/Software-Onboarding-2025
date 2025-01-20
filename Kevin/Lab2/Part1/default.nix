@@ -2,7 +2,7 @@
 
 { stdenv, cmake }: 
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
     pname = "Hello World with Nix";
     version = "1.0";
     src = ./.;

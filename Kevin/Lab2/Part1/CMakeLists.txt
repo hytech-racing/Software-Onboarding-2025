@@ -10,7 +10,7 @@ add_library(HelloWorldLibrary STATIC src/helloLibrary.cpp include/helloLibrary.h
 target_include_directories(HelloWorldLibrary PUBLIC include)
 
 # We link the dependencies together
-target_link_libraries(HelloWorldProgram HelloWorldLibrary)
+target_link_libraries(HelloWorldProgram PRIVATE HelloWorldLibrary)
 
 # Provide installation path
 install(TARGETS HelloWorldProgram DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
