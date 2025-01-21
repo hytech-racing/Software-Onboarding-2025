@@ -1,0 +1,10 @@
+
+Terminal Commands
+
+nix run [package link]
+- Downloads the package and runs the result
+
+nix develop [package link]
+- Opens up a development environment
+- "exit" to exit
+
