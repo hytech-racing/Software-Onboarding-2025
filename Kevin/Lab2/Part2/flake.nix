@@ -7,9 +7,9 @@
 
     outputs = { self, nixpkgs} :
         let
-            hello_program_overlays = final: prev: rec {
+            hello_program_overlays = final: prev: {
                 hello_lib = final.callPackage ./libraryDerivation.nix {};
-                hello_executable = final.callPackage ./default.nix { inherit hello_lib; };
+                hello_executable = final.callPackage ./default.nix {};
             };
 
             overlays_to_install = [ hello_program_overlays ];
