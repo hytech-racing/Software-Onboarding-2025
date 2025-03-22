@@ -1,5 +1,5 @@
-#include "../src/udp_socket.h"
-#include "../generated/message.pb.h"  // Include the generated Protobuf header
+#include "udp_socket.h"
+#include "message.pb.h"  // Include the generated Protobuf header
 #include <iostream>
 
 int main() {

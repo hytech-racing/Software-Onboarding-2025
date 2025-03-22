@@ -13,7 +13,11 @@ add_executable(client app/udp_client.cpp generated/message.pb.cc)
 
 target_link_libraries(client PRIVATE udp_socket protobuf::libprotobuf)
 
+target_include_directories(server PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(client PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(udp_socket PRIVATE ${CMAKE_SOURCE_DIR}/include)
 target_include_directories(server PRIVATE generated/)
 target_include_directories(client PRIVATE generated/)
+target_include_directories(udp_socket PRIVATE ${CMAKE_SOURCE_DIR}/generated)
 
 install(TARGETS server client DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
