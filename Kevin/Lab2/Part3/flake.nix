@@ -3,11 +3,10 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-
         hello_lib.url = "github:Accuide/helloLibrary";
     };
 
-    outputs = { self, nixpkgs} :
+    outputs = { self, nixpkgs, hello_lib} :
         let
             hello_program_overlays = final: prev: {
                 hello_executable = final.callPackage ./default.nix {};
@@ -17,7 +16,7 @@
 
             pkgs = import nixpkgs {
                 system = "aarch64-darwin";
-                overlays = [self.overlays.default];
+                overlays = [self.overlays.default hello_lib.overlays.default];
             };
         in {
             packages.aarch64-darwin.default = pkgs.hello_executable;
